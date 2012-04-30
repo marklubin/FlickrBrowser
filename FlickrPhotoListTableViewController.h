@@ -1,5 +1,5 @@
 //
-//  FlickrViewController.h
+//  FlickrPhotoListTableViewController.h
 //  Flickr Browser
 //
 //  Created by Mark Lubin on 4/30/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlickrViewController : UIViewController
+@interface FlickrPhotoListTableViewController : UITableViewController
 
 @end
