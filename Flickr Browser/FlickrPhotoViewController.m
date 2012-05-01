@@ -33,6 +33,7 @@
 -(void)setImageTitle:(NSString *)imageTitle{
     _imageTitle = imageTitle;
     self.imageLabel.text = self.imageTitle;
+    self.navigationItem.title = self.imageTitle;
 }
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
@@ -68,7 +69,7 @@
     self.imageView.image = self.image;
     self.scrollView.contentSize = self.imageView.image.size;
     self.imageView.frame = CGRectMake(0.0, 0.0, self.image.size.width, self.image.size.height);
-    //TODO implement setting initial zoom
+    //TODO Scroll to Content Size [self.scrollView zoomToRect: animated:YES];
 }
 
 - (void)viewDidUnload

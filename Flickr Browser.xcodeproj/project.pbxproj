@@ -282,6 +282,7 @@
 				GCC_PREFIX_HEADER = "Flickr Browser/Flickr Browser-Prefix.pch";
 				INFOPLIST_FILE = "Flickr Browser/Flickr Browser-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -293,6 +294,7 @@
 				GCC_PREFIX_HEADER = "Flickr Browser/Flickr Browser-Prefix.pch";
 				INFOPLIST_FILE = "Flickr Browser/Flickr Browser-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -90,4 +90,14 @@
         
     }
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"ShowImage"]){
+        FlickrPhotoViewController *fpVC = segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+        fpVC.image = [self getImageforIndexPath:indexPath];
+    }
+}
 @end
