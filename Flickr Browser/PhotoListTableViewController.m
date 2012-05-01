@@ -7,6 +7,7 @@
 //
 
 #import "PhotoListTableViewController.h"
+#import "FlickrFetcher.h"
 
 @interface PhotoListTableViewController ()
 
@@ -14,6 +15,7 @@
 
 @implementation PhotoListTableViewController
 @synthesize reloadButton = _reloadButton;
+@synthesize photos = _photos;
 
 - (IBAction)refreshTable:(UIBarButtonItem *)sender {
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -24,6 +26,14 @@
     self.navigationItem.rightBarButtonItem = sender;
     [self.tableView reloadData];
     
+}
+
+-(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath withSize:(FlickrPhotoFormat)size{
+    NSURL *url = [FlickrFetcher urlForPhoto:[self.photos objectAtIndex:indexPath.row] 
+                                     format:size];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    return image;
 }
 
 -(NSDictionary *)parsePlaceName:(NSString *)place{
@@ -38,6 +48,8 @@
     [placeDescription setObject:region forKey:@"region"];
     return placeDescription;
 }
+
+
 
 
 -(void)getTableData{

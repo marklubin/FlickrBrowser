@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlickrFetcher.h"
 
 @interface PhotoListTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *reloadButton;
+@property (strong, nonatomic) NSArray *photos;
 
 -(NSDictionary *)parsePlaceName:(NSString *)place;
 
+-(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath withSize:(FlickrPhotoFormat)size;
 //overwrite
 -(void)getTableData;
 

@@ -13,14 +13,19 @@
 #define MAX_RESULTS 50
 
 @interface FlickrPlacePhotosViewController()
-@property (nonatomic,strong) NSArray *photos;
--(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic,strong) NSMutableDictionary *previewImages;
 @end
 
 @implementation FlickrPlacePhotosViewController
 @synthesize reloadButton = _reloadButton;
 @synthesize place = _place;
-@synthesize photos = _photos;
+@synthesize previewImages = _previewImages;
+
+-(NSMutableDictionary *)previewImages{
+    if(_previewImages) return _previewImages;
+    else _previewImages = [[NSMutableDictionary alloc]init];
+    return _previewImages;
+}
 
 -(void)setPlace:(NSDictionary *)place{
     if(place != _place){
@@ -32,6 +37,29 @@
 -(IBAction)refreshTable:(UIBarButtonItem *)sender{
     [super refreshTable:sender];
 }
+
+/*
+ Future Feature Load Preview Images Async
+ 
+ -(void)loadPreviewImages{
+    //TODO Cache Preview images
+    for(int i = 0; i < self.photos.count; i++){
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+        UITableViewCell *cell =[self.tableView cellForRowAtIndexPath:indexPath];
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [spinner startAnimating];
+        [cell.contentView addSubview:spinner];
+        [cell setNeedsLayout];
+        NSDictionary *photo = [self.photos objectAtIndex:i];
+            if(![self.previewImages valueForKey:[photo valueForKey:FLICKR_PHOTO_ID]]){
+                UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatSquare];
+                [self.previewImages setValue:image forKey:[photo valueForKey:FLICKR_PHOTO_ID]];
+           
+        
+        
+    }
+}*/
 
 -(void)updateTitle{
     NSString *placeStr = [self.place valueForKey:FLICKR_PLACE_NAME];
@@ -46,7 +74,9 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self updateTitle];
+    if(self.photos){
+        [self updateTitle];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)                       section
@@ -70,15 +100,20 @@
     }
     cell.textLabel.text = title;
     cell.detailTextLabel.text = description;
+
     return cell;
 }
 
--(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath{
-    NSURL *url = [FlickrFetcher urlForPhoto:[self.photos objectAtIndex:indexPath.row] 
-                                     format:FlickrPhotoFormatLarge];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *image = [UIImage imageWithData:data];
-    return image;
+-(void)updateRecents:(NSIndexPath *)indexPath{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
+    NSMutableArray *recents = [[defaults arrayForKey:@"RecentPhotos"] mutableCopy];
+    if(!recents){
+        recents =  [[NSMutableArray alloc]init];
+    }
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+    [recents insertObject:photo atIndex:0];
+    [defaults setValue:recents forKey:@"RecentPhotos"];
+    [defaults synchronize];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +121,8 @@
     if(self.splitViewController){//if im on the ipad
         FlickrPhotoViewController *fpVC = [self.splitViewController.viewControllers lastObject];
         fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-        fpVC.image = [self getImageforIndexPath:indexPath];
+        fpVC.image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];
+        [self updateRecents:indexPath];
         
     }
 }
@@ -97,7 +133,8 @@
         FlickrPhotoViewController *fpVC = segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-        fpVC.image = [self getImageforIndexPath:indexPath];
+        fpVC.image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];
+        [self updateRecents:indexPath];
     }
 }
 @end
