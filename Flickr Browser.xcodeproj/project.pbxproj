@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D854625154F6B050098BC0E /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D854624154F6B050098BC0E /* FlickrFetcher.m */; };
+		4D85462C154F79300098BC0E /* FlickrPlacePhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D85462B154F79300098BC0E /* FlickrPlacePhotosViewController.m */; };
 		4DAC381A154F3D6700886607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAC3819154F3D6700886607 /* UIKit.framework */; };
 		4DAC381C154F3D6700886607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAC381B154F3D6700886607 /* Foundation.framework */; };
 		4DAC381E154F3D6700886607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAC381D154F3D6700886607 /* CoreGraphics.framework */; };
@@ -17,9 +19,15 @@
 		4DAC3830154F3D6700886607 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DAC382E154F3D6700886607 /* MainStoryboard_iPad.storyboard */; };
 		4DAC383B154F3DAD00886607 /* FlickrPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC383A154F3DAD00886607 /* FlickrPhotoViewController.m */; };
 		4DC27337154F540C00972614 /* FlickrTopPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */; };
+		4DE9E2E3154F7F9D0094B38F /* PhotoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9E2E2154F7F9D0094B38F /* PhotoListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D854622154F6B050098BC0E /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		4D854623154F6B050098BC0E /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		4D854624154F6B050098BC0E /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		4D85462A154F79300098BC0E /* FlickrPlacePhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPlacePhotosViewController.h; sourceTree = "<group>"; };
+		4D85462B154F79300098BC0E /* FlickrPlacePhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPlacePhotosViewController.m; sourceTree = "<group>"; };
 		4DAC3815154F3D6700886607 /* Flickr Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAC3819154F3D6700886607 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4DAC381B154F3D6700886607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,6 +44,8 @@
 		4DAC383A154F3DAD00886607 /* FlickrPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoViewController.m; sourceTree = "<group>"; };
 		4DC27335154F540C00972614 /* FlickrTopPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrTopPhotoTableViewController.h; sourceTree = "<group>"; };
 		4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTopPhotoTableViewController.m; sourceTree = "<group>"; };
+		4DE9E2E1154F7F9D0094B38F /* PhotoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoListTableViewController.h; sourceTree = "<group>"; };
+		4DE9E2E2154F7F9D0094B38F /* PhotoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,13 @@
 		4DAC381F154F3D6700886607 /* Flickr Browser */ = {
 			isa = PBXGroup;
 			children = (
+				4DE9E2E1154F7F9D0094B38F /* PhotoListTableViewController.h */,
+				4DE9E2E2154F7F9D0094B38F /* PhotoListTableViewController.m */,
+				4D85462A154F79300098BC0E /* FlickrPlacePhotosViewController.h */,
+				4D85462B154F79300098BC0E /* FlickrPlacePhotosViewController.m */,
+				4D854622154F6B050098BC0E /* FlickrAPIKey.h */,
+				4D854623154F6B050098BC0E /* FlickrFetcher.h */,
+				4D854624154F6B050098BC0E /* FlickrFetcher.m */,
 				4DC27335154F540C00972614 /* FlickrTopPhotoTableViewController.h */,
 				4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */,
 				4DAC382B154F3D6700886607 /* MainStoryboard_iPhone.storyboard */,
@@ -175,6 +192,9 @@
 				4DAC382A154F3D6700886607 /* FlickrAppDelegate.m in Sources */,
 				4DAC383B154F3DAD00886607 /* FlickrPhotoViewController.m in Sources */,
 				4DC27337154F540C00972614 /* FlickrTopPhotoTableViewController.m in Sources */,
+				4D854625154F6B050098BC0E /* FlickrFetcher.m in Sources */,
+				4D85462C154F79300098BC0E /* FlickrPlacePhotosViewController.m in Sources */,
+				4DE9E2E3154F7F9D0094B38F /* PhotoListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

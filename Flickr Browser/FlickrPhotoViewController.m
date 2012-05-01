@@ -29,6 +29,11 @@
         [self updateImage];
     }
 }
+
+-(void)setImageTitle:(NSString *)imageTitle{
+    _imageTitle = imageTitle;
+    self.imageLabel.text = self.imageTitle;
+}
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
 }
@@ -61,7 +66,9 @@
 
 -(void)updateImage{
     self.imageView.image = self.image;
-    //TODO set frame and scrollview up
+    self.scrollView.contentSize = self.imageView.image.size;
+    self.imageView.frame = CGRectMake(0.0, 0.0, self.image.size.width, self.image.size.height);
+    //TODO implement setting initial zoom
 }
 
 - (void)viewDidUnload

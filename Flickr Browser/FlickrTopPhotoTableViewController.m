@@ -7,10 +7,12 @@
 //
 
 #import "FlickrTopPhotoTableViewController.h"
+#import "FlickrPlacePhotosViewController.h"
+#import "FlickrFetcher.h"
 
 @interface FlickrTopPhotoTableViewController ()
 
-@property NSArray *places;
+@property (strong,nonatomic) NSArray *places;
 
 @end
 
@@ -19,49 +21,34 @@
 @synthesize places = _places;
 
 
-
 - (IBAction)refreshTable:(UIBarButtonItem *)sender {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [spinner startAnimating];
-    self.navigationItem.leftBarButtonItem =  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-    //self.places = [FlickrFetcher topPlaces];
-
+    [super refreshTable:sender];
+    
 }
 
 
+-(void)getTableData{
+    self.places = [FlickrFetcher topPlaces];
+}
 
-- (void)viewDidLoad
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *row = self.tableView.indexPathForSelectedRow;
+    NSDictionary *placeToSend = [self.places objectAtIndex:row.row];
+    if([segue.identifier isEqualToString:@"ShowPlace"]){
+        FlickrPlacePhotosViewController *placeVC = segue.destinationViewController;
+        placeVC.place = placeToSend;
+    }
+}
+
+-(void)viewDidLoad{
     [super viewDidLoad];
-    //refresh my table manually
     [self refreshTable:self.reloadButton];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidUnload
-{
-    [self setReloadButton:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
-}
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -71,63 +58,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TopPlacesPhoto";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];   
-    cell.textLabel.text = [self.places objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]; 
+    NSDictionary *place = [self.places objectAtIndex:indexPath.row];
+    NSDictionary *placeDescription = [self parsePlaceName:[place objectForKey:FLICKR_PLACE_NAME]];
+    cell.textLabel.text = [placeDescription objectForKey:@"locality"];
+    cell.detailTextLabel.text = [placeDescription objectForKey:@"region"];
     
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
+
 
 @end

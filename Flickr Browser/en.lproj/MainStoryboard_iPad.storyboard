@@ -22,18 +22,19 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8FG-5d-j3Z"/>
                                 </items>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" minimumZoomScale="0.20000000000000001" id="RTH-R9-BS3">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.20000000000000001" maximumZoomScale="10" id="RTH-R9-BS3">
                                 <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oJS-gx-MwX">
+                                    <imageView userInteractionEnabled="NO" contentMode="TopLeft" id="oJS-gx-MwX">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select an image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ad8-Hd-xdU">
-                                <rect key="frame" x="302" y="7" width="164" height="29"/>
+                                <rect key="frame" x="81" y="7" width="607" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,7 +52,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1414" y="-1432"/>
+            <point key="canvasLocation" x="1230" y="-1058"/>
         </scene>
         <!--Flickr Top Photo Table View Controller - Top Places-->
         <scene sceneID="Jqq-KM-p0w">
@@ -87,6 +88,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="9VJ-Ku-wTY" kind="push" identifier="ShowPlace" id="S6i-t9-SHB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -106,7 +110,63 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3500" y="-3361"/>
+            <point key="canvasLocation" x="2363" y="-4141"/>
+        </scene>
+        <!--Flickr Place Photos View Controller - Place Name Here-->
+        <scene sceneID="c89-kb-RMJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgm-VM-XhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="9VJ-Ku-wTY" customClass="FlickrPlacePhotosViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4gU-HB-Lva">
+                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlacePhoto" textLabel="Tdv-8G-19g" detailTextLabel="qfN-9K-teo" style="IBUITableViewCellStyleSubtitle" id="VwT-nP-tEw">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tdv-8G-19g">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qfN-9K-teo">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9VJ-Ku-wTY" id="GMA-wH-ziH"/>
+                            <outlet property="delegate" destination="9VJ-Ku-wTY" id="9Bs-VW-XEM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Place Name Here" id="vxN-0E-FM3">
+                        <barButtonItem key="rightBarButtonItem" title="Reload" id="Dzc-Kr-zQj">
+                            <connections>
+                                <action selector="refreshTable:" destination="9VJ-Ku-wTY" id="EKI-20-0ae"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reloadButton" destination="Dzc-Kr-zQj" id="s3Y-XP-8hp"/>
+                        <outlet property="view" destination="4gU-HB-Lva" id="i8s-6a-H8o"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="2840" y="-4141"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="huk-Q1-FTN">
@@ -138,7 +198,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="1555" y="-2522"/>
+            <point key="canvasLocation" x="1235" y="-2890"/>
         </scene>
         <!--Navigation Controller - Top Places-->
         <scene sceneID="0lB-Kh-StJ">
@@ -158,7 +218,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2196" y="-3006"/>
+            <point key="canvasLocation" x="1792" y="-4106"/>
         </scene>
     </scenes>
     <classes>
@@ -171,9 +231,22 @@
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
-        <class className="FlickrTopPhotoTableViewController" superclassName="UITableViewController">
+        <class className="FlickrPlacePhotosViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPlacePhotosViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="FlickrTopPhotoTableViewController" superclassName="PhotoListTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTopPhotoTableViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="PhotoListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
