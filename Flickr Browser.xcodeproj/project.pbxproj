@@ -34,9 +34,6 @@
 		4DAC382F154F3D6700886607 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		4DAC3839154F3DAD00886607 /* FlickrPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoViewController.h; sourceTree = "<group>"; };
 		4DAC383A154F3DAD00886607 /* FlickrPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoViewController.m; sourceTree = "<group>"; };
-		4DC27332154F525500972614 /* FlickrAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
-		4DC27333154F525500972614 /* FlickrFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
-		4DC27334154F525500972614 /* FlickrFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		4DC27335154F540C00972614 /* FlickrTopPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrTopPhotoTableViewController.h; sourceTree = "<group>"; };
 		4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTopPhotoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,9 +84,6 @@
 			children = (
 				4DC27335154F540C00972614 /* FlickrTopPhotoTableViewController.h */,
 				4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */,
-				4DC27332154F525500972614 /* FlickrAPIKey.h */,
-				4DC27333154F525500972614 /* FlickrFetcher.h */,
-				4DC27334154F525500972614 /* FlickrFetcher.m */,
 				4DAC382B154F3D6700886607 /* MainStoryboard_iPhone.storyboard */,
 				4DAC382E154F3D6700886607 /* MainStoryboard_iPad.storyboard */,
 				4DAC383A154F3DAD00886607 /* FlickrPhotoViewController.m */,

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UILabel *imageLabel;
 @property (strong, nonatomic) UIImage *image;
+@property (strong,nonatomic) NSString *imageTitle;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 

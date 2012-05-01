@@ -7,14 +7,16 @@
 //
 
 #import "FlickrTopPhotoTableViewController.h"
-#import "FlickrFetcher.h"
 
 @interface FlickrTopPhotoTableViewController ()
+
+@property NSArray *places;
 
 @end
 
 @implementation FlickrTopPhotoTableViewController
 @synthesize reloadButton = _reloadButton;
+@synthesize places = _places;
 
 
 
@@ -22,8 +24,8 @@
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner startAnimating];
     self.navigationItem.leftBarButtonItem =  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-    //query flicker
-    
+    //self.places = [FlickrFetcher topPlaces];
+
 }
 
 
@@ -58,24 +60,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.places.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"TopPlacesPhoto";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];   
+    cell.textLabel.text = [self.places objectAtIndex:indexPath.row];
     
-    // Configure the cell...
     
     return cell;
 }

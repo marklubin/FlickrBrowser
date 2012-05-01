@@ -18,6 +18,7 @@
 @synthesize image = _image;
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
+@synthesize imageTitle = _imageTitle;
 
 
 -(void)setImage:(UIImage *)image{
