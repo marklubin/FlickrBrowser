@@ -308,39 +308,6 @@
             <point key="canvasLocation" x="1029" y="-2907"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FlickrPhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="FlickrPlacePhotosViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPlacePhotosViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="FlickrRecentPhotosTableViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentPhotosTableViewController.h"/>
-        </class>
-        <class className="FlickrTopPhotoTableViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTopPhotoTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PhotoListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

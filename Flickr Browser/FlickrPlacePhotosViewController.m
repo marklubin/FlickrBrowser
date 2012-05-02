@@ -14,6 +14,7 @@
 
 @interface FlickrPlacePhotosViewController()
 @property (nonatomic,strong) NSMutableDictionary *previewImages;
+
 @end
 
 @implementation FlickrPlacePhotosViewController
@@ -86,7 +87,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"PlacePhoto";
+    NSString *CellIdentifier = @"PlacePhoto";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
     NSString *title = [photo objectForKey:FLICKR_PHOTO_TITLE];
@@ -107,11 +108,28 @@
 -(void)updateRecents:(NSIndexPath *)indexPath{
     NSUserDefaults *defaults = [[NSUserDefaults alloc] init];
     NSMutableArray *recents = [[defaults arrayForKey:@"RecentPhotos"] mutableCopy];
-    if(!recents){
+    
+    if(!recents){//create if this is our first go around
         recents =  [[NSMutableArray alloc]init];
     }
+    
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    [recents insertObject:photo atIndex:0];
+    NSString *photoID = [photo valueForKey:FLICKR_PHOTO_ID];
+    BOOL shouldAdd = YES;
+    for (NSDictionary *currentPhoto in recents) {
+        if([photoID isEqualToString:[currentPhoto objectForKey:FLICKR_PHOTO_ID]]){
+            shouldAdd = NO;
+        }
+    }
+    if(shouldAdd)[recents insertObject:photo atIndex:0];
+    
+    if([recents count] > 20){//trim array if its > 20
+        NSRange range;
+        range.location = 20;
+        range.length = [recents count] - 20;
+        [recents removeObjectsInRange:range];
+    }
+    
     [defaults setValue:recents forKey:@"RecentPhotos"];
     [defaults synchronize];
 }

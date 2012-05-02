@@ -17,6 +17,7 @@
 
 
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -32,24 +33,34 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)                       section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.photos.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"RecentPhoto";
+    NSString *CellIdentifier = @"RecentPhoto";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
     NSString *title = [photo objectForKey:FLICKR_PHOTO_TITLE];
+    NSString *description = [[photo objectForKey:@"description"] objectForKey:@"_content"];
     if([title isEqualToString:@""]){
-      title = @"Unknown";
+        title = description;
+        description = @"";
+        if([title isEqualToString:@""]){
+            title = @"Unknown";
+        }
     }
     cell.textLabel.text = title;
+    cell.detailTextLabel.text = description;
     
     return cell;
 }
+
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
