@@ -37,6 +37,7 @@
 }
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
+    scrollView.contentScaleFactor = 1;
 }
 
 
@@ -70,7 +71,8 @@
     self.imageView.image = self.image;
     self.scrollView.contentSize = self.imageView.image.size;
     self.imageView.frame = CGRectMake(0.0, 0.0, self.image.size.width, self.image.size.height);
-    //TODO Scroll to Content Size [self.scrollView zoomToRect: animated:YES];
+    [self.scrollView zoomToRect:self.imageView.frame animated:YES];
+    [self.scrollView setNeedsDisplay];
 }
 
 - (void)viewDidUnload

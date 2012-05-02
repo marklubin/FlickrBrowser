@@ -115,12 +115,14 @@
     
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
     NSString *photoID = [photo valueForKey:FLICKR_PHOTO_ID];
+    //check for dupes
     BOOL shouldAdd = YES;
     for (NSDictionary *currentPhoto in recents) {
         if([photoID isEqualToString:[currentPhoto objectForKey:FLICKR_PHOTO_ID]]){
             shouldAdd = NO;
         }
     }
+    //if this isn't a duplicate
     if(shouldAdd)[recents insertObject:photo atIndex:0];
     
     if([recents count] > 20){//trim array if its > 20
@@ -130,6 +132,7 @@
         [recents removeObjectsInRange:range];
     }
     
+    //update my defaults
     [defaults setValue:recents forKey:@"RecentPhotos"];
     [defaults synchronize];
 }
