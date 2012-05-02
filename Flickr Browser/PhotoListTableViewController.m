@@ -21,10 +21,17 @@
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [spinner startAnimating];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
-    [self getTableData];
-    [spinner stopAnimating];
-    self.navigationItem.rightBarButtonItem = sender;
-    [self.tableView reloadData];
+    //put this call in seperate thread
+    dispatch_queue_t queue = dispatch_queue_create("flickrNetworking", NULL);
+    dispatch_async(queue, ^{
+         [self getTableData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.navigationItem.rightBarButtonItem = sender;
+            [self.tableView reloadData];
+        });
+    });
+   
+  
     
 }
 
