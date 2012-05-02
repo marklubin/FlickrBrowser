@@ -61,6 +61,7 @@
     //set myself up as the delegate for splitview and scrollview
     self.splitViewController.delegate = self;   
     self.scrollView.delegate =self;
+    self.splitViewController.presentsWithGesture = NO;
     if(self.image){
         [self updateImage];
     }

@@ -21,6 +21,9 @@
 		4DAC383B154F3DAD00886607 /* FlickrPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC383A154F3DAD00886607 /* FlickrPhotoViewController.m */; };
 		4DC27337154F540C00972614 /* FlickrTopPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */; };
 		4DE9E2E3154F7F9D0094B38F /* PhotoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9E2E2154F7F9D0094B38F /* PhotoListTableViewController.m */; };
+		4DEDF0FB1550C4E200EF6F22 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDF0FA1550C4E200EF6F22 /* 11-clock.png */; };
+		4DEDF0FE1550C57000EF6F22 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDF0FD1550C57000EF6F22 /* 28-star.png */; };
+		4DEDF1001550C5A200EF6F22 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDF0FF1550C5A200EF6F22 /* 01-refresh.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		4DC27336154F540C00972614 /* FlickrTopPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTopPhotoTableViewController.m; sourceTree = "<group>"; };
 		4DE9E2E1154F7F9D0094B38F /* PhotoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoListTableViewController.h; sourceTree = "<group>"; };
 		4DE9E2E2154F7F9D0094B38F /* PhotoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListTableViewController.m; sourceTree = "<group>"; };
+		4DEDF0FA1550C4E200EF6F22 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		4DEDF0FD1550C57000EF6F22 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "28-star.png"; path = "../28-star.png"; sourceTree = "<group>"; };
+		4DEDF0FF1550C5A200EF6F22 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-refresh.png"; path = "../01-refresh.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,9 @@
 		4DAC3820154F3D6700886607 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4DEDF0FF1550C5A200EF6F22 /* 01-refresh.png */,
+				4DEDF0FD1550C57000EF6F22 /* 28-star.png */,
+				4DEDF0FA1550C4E200EF6F22 /* 11-clock.png */,
 				4DAC3828154F3D6700886607 /* FlickrAppDelegate.h */,
 				4DAC3829154F3D6700886607 /* FlickrAppDelegate.m */,
 				4DAC3821154F3D6700886607 /* Flickr Browser-Info.plist */,
@@ -183,6 +192,9 @@
 				4DAC3824154F3D6700886607 /* InfoPlist.strings in Resources */,
 				4DAC382D154F3D6700886607 /* MainStoryboard_iPhone.storyboard in Resources */,
 				4DAC3830154F3D6700886607 /* MainStoryboard_iPad.storyboard in Resources */,
+				4DEDF0FB1550C4E200EF6F22 /* 11-clock.png in Resources */,
+				4DEDF0FE1550C57000EF6F22 /* 28-star.png in Resources */,
+				4DEDF1001550C5A200EF6F22 /* 01-refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

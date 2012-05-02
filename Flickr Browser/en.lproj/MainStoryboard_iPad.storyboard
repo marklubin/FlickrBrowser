@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D2001" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="PNn-Vu-ANO">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -19,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items/>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="10" id="RTH-R9-BS3">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.75" maximumZoomScale="5" id="RTH-R9-BS3">
                                 <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -28,6 +29,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select an image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ad8-Hd-xdU">
                                 <rect key="frame" x="81" y="7" width="607" height="29"/>
@@ -95,7 +97,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Top Places" id="jG2-8R-BX6">
-                        <barButtonItem key="rightBarButtonItem" title="Reload" id="LzD-uU-dRV">
+                        <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="LzD-uU-dRV">
                             <connections>
                                 <action selector="refreshTable:" destination="f00-Qd-3vd" id="jHc-Md-SD2"/>
                             </connections>
@@ -150,7 +152,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Place Name Here" id="vxN-0E-FM3">
-                        <barButtonItem key="rightBarButtonItem" title="Reload" id="Dzc-Kr-zQj">
+                        <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="Dzc-Kr-zQj">
                             <connections>
                                 <action selector="refreshTable:" destination="9VJ-Ku-wTY" id="EKI-20-0ae"/>
                             </connections>
@@ -202,7 +204,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1r2-C8-R1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="jbh-Pk-MD8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Places" id="OeA-Pq-375"/>
+                    <tabBarItem key="tabBarItem" title="Top Places" image="28-star.png" id="OeA-Pq-375"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="elx-e9-Ptq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -267,12 +269,12 @@
             </objects>
             <point key="canvasLocation" x="2782" y="-2871"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Recent-->
         <scene sceneID="Vzf-Cw-Jfd">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ymv-l6-mqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="bfm-NT-esT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="JNN-Dy-Pb1"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="11-clock.png" id="JNN-Dy-Pb1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="YGc-gu-5kB">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -288,6 +290,44 @@
             <point key="canvasLocation" x="2038" y="-2890"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="01-refresh.png" width="24" height="26"/>
+        <image name="11-clock.png" width="25" height="25"/>
+        <image name="28-star.png" width="26" height="26"/>
+    </resources>
+    <classes>
+        <class className="FlickrPhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="FlickrPlacePhotosViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPlacePhotosViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="FlickrRecentPhotosTableViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentPhotosTableViewController.h"/>
+        </class>
+        <class className="FlickrTopPhotoTableViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTopPhotoTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="PhotoListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

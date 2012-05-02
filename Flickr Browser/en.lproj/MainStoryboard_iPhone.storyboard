@@ -51,7 +51,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Top Places" id="GLk-Xj-UP0">
-                        <barButtonItem key="rightBarButtonItem" title="Reload" id="A9M-rU-buf">
+                        <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="A9M-rU-buf">
                             <connections>
                                 <action selector="refreshTable:" destination="mD1-hx-8Cw" id="fNS-Wf-SBR"/>
                             </connections>
@@ -110,7 +110,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Place Name Here" id="Jgr-xg-v1p">
-                        <barButtonItem key="rightBarButtonItem" title="Reload" id="KgS-Cg-AI0">
+                        <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="KgS-Cg-AI0">
                             <connections>
                                 <action selector="refreshTable:" destination="hYR-g5-cYb" id="utc-JQ-06d"/>
                             </connections>
@@ -152,7 +152,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="won-dx-FU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="fFo-g4-tao" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Places" id="Pt7-x9-pwD"/>
+                    <tabBarItem key="tabBarItem" title="Top Places" image="28-star.png" id="Pt7-x9-pwD"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7AJ-xu-MXz">
@@ -177,7 +177,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.10000000000000001" maximumZoomScale="5" id="sui-7w-lOM">
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.33000000000000002" maximumZoomScale="3" id="sui-7w-lOM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -186,6 +186,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -259,7 +260,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3B-kx-6JR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="4Y1-ZE-VDS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recents" id="SNv-UP-SYO"/>
+                    <tabBarItem key="tabBarItem" title="Recents" image="11-clock.png" id="SNv-UP-SYO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3q4-Ae-bks">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -283,7 +284,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.10000000149011612" maximumZoomScale="5" id="kYv-k9-ZuZ">
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.33000000000000002" maximumZoomScale="3" id="kYv-k9-ZuZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -292,6 +293,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -308,6 +310,44 @@
             <point key="canvasLocation" x="1029" y="-2907"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="01-refresh.png" width="24" height="26"/>
+        <image name="11-clock.png" width="25" height="25"/>
+        <image name="28-star.png" width="26" height="26"/>
+    </resources>
+    <classes>
+        <class className="FlickrPhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="FlickrPlacePhotosViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPlacePhotosViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="FlickrRecentPhotosTableViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentPhotosTableViewController.h"/>
+        </class>
+        <class className="FlickrTopPhotoTableViewController" superclassName="PhotoListTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTopPhotoTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="PhotoListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
