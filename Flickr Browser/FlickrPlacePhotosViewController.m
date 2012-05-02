@@ -13,20 +13,13 @@
 #define MAX_RESULTS 50
 
 @interface FlickrPlacePhotosViewController()
-@property (nonatomic,strong) NSMutableDictionary *previewImages;
 
 @end
 
 @implementation FlickrPlacePhotosViewController
 @synthesize reloadButton = _reloadButton;
 @synthesize place = _place;
-@synthesize previewImages = _previewImages;
 
--(NSMutableDictionary *)previewImages{
-    if(_previewImages) return _previewImages;
-    else _previewImages = [[NSMutableDictionary alloc]init];
-    return _previewImages;
-}
 
 -(void)setPlace:(NSDictionary *)place{
     if(place != _place){
@@ -39,28 +32,11 @@
     [super refreshTable:sender];
 }
 
-/*
- Future Feature Load Preview Images Async
+
  
- -(void)loadPreviewImages{
-    //TODO Cache Preview images
-    for(int i = 0; i < self.photos.count; i++){
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-        UITableViewCell *cell =[self.tableView cellForRowAtIndexPath:indexPath];
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-        [spinner startAnimating];
-        [cell.contentView addSubview:spinner];
-        [cell setNeedsLayout];
-        NSDictionary *photo = [self.photos objectAtIndex:i];
-            if(![self.previewImages valueForKey:[photo valueForKey:FLICKR_PHOTO_ID]]){
-                UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatSquare];
-                [self.previewImages setValue:image forKey:[photo valueForKey:FLICKR_PHOTO_ID]];
-           
-        
-        
-    }
-}*/
+-(UIImage *)loadPreviewImage:(NSIndexPath *)indexPath{
+  return  [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatSquare];
+}
 
 -(void)updateTitle{
     NSString *placeStr = [self.place valueForKey:FLICKR_PLACE_NAME];
@@ -101,6 +77,19 @@
     }
     cell.textLabel.text = title;
     cell.detailTextLabel.text = description;
+    dispatch_queue_t queue = dispatch_queue_create("imagePreview", NULL);
+    dispatch_async(queue, ^{
+        UIImage *image = [self loadPreviewImage:indexPath];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([[self.tableView indexPathForCell:cell] isEqual:indexPath]){
+                cell.imageView.image = image;
+                [cell setNeedsLayout];
+                
+            }
+        });
+    });
+    dispatch_release(queue);
+    
 
     return cell;
 }
@@ -154,7 +143,8 @@
                 
             }
            
-        });
+        }); 
+         dispatch_release(queue);
        
         
     }
@@ -179,7 +169,7 @@
             }
             
         });
-        
+        dispatch_release(queue);
 
     
     }
