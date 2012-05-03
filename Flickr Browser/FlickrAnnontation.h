@@ -10,5 +10,7 @@
 #import <MapKit/MapKit.h>
 
 @interface FlickrAnnontation : NSObject<MKAnnotation>
+@property NSDictionary *photo;
++(id<MKAnnotation>)flickrAnnotationForPhoto:(NSDictionary *)photo;
 
 @end

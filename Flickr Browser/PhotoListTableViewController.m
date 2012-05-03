@@ -9,6 +9,7 @@
 #import "PhotoListTableViewController.h"
 #import "FlickrFetcher.h"
 #import "MapViewController.h"
+#import "FlickrAnnontation.h"
 
 @interface PhotoListTableViewController ()
 
@@ -83,7 +84,7 @@
     if([segue.identifier isEqualToString:@"ShowMap"]){
         NSMutableArray *annotations = [[NSMutableArray alloc]initWithCapacity:self.photos.count];
         for (NSDictionary *photo in self.photos) {
-            //create an annotation and add to the list
+            [annotations addObject:[FlickrAnnontation flickrAnnotationForPhoto:photo]];
         }
         MapViewController *mapVC= segue.destinationViewController;
         mapVC.annotations = annotations;
