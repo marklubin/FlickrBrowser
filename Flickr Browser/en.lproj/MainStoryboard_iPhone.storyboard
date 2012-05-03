@@ -12,7 +12,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2K-bl-dTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="mD1-hx-8Cw" customClass="FlickrTopPhotoTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MNs-wM-bFJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -50,6 +50,7 @@
                             <outlet property="delegate" destination="mD1-hx-8Cw" id="8Ll-bM-pYT"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Top Places" id="GLk-Xj-UP0">
                         <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="A9M-rU-buf">
                             <connections>
@@ -58,6 +59,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="reloadButton" destination="A9M-rU-buf" id="e0V-8A-8Uv"/>
                     </connections>
@@ -71,7 +73,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wue-Xp-QbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="hYR-g5-cYb" customClass="FlickrPlacePhotosViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="43" sectionHeaderHeight="22" sectionFooterHeight="22" id="yBI-Xd-lqv">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -109,6 +111,14 @@
                             <outlet property="delegate" destination="hYR-g5-cYb" id="wOG-ya-Y36"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Map" id="OZY-UW-yMi">
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="h7i-rc-azK" kind="push" identifier="ShowMap" id="pcO-Wi-BJh"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Place Name Here" id="Jgr-xg-v1p">
                         <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="KgS-Cg-AI0">
                             <connections>
@@ -117,6 +127,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="reloadButton" destination="KgS-Cg-AI0" id="clx-vR-47J"/>
                         <outlet property="view" destination="yBI-Xd-lqv" id="cg7-yz-0nG"/>
@@ -161,6 +172,10 @@
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="evA-Jv-rOc">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="mD1-hx-8Cw" kind="relationship" relationship="rootViewController" id="G7X-jv-bu7"/>
                     </connections>
@@ -174,11 +189,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSt-2W-hrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="J96-pr-LKf" customClass="FlickrPhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="redraw" id="CeE-Ch-JeD">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.33000000000000002" maximumZoomScale="3" id="sui-7w-lOM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="TopLeft" id="61i-wH-kic">
@@ -200,7 +215,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2402" y="-3746"/>
+            <point key="canvasLocation" x="2194" y="-2354"/>
         </scene>
         <!--Flickr Recent Photos Table View Controller - Recent Photos-->
         <scene sceneID="VwE-T4-Dhf">
@@ -208,7 +223,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c80-jQ-OEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CF1-3I-cHE" customClass="FlickrRecentPhotosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="43" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Ow-Kz-lHD">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -246,20 +261,29 @@
                             <outlet property="delegate" destination="CF1-3I-cHE" id="oFu-Ks-CvA"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Map" id="OAm-n3-KtH">
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="h7i-rc-azK" kind="push" identifier="ShowMap" id="e3L-Y8-Et0"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Recent Photos" id="QiC-St-88m"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="view" destination="5Ow-Kz-lHD" id="Was-o7-FUD"/>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="512" y="-2907"/>
+            <point key="canvasLocation" x="824" y="-3039"/>
         </scene>
         <!--Navigation Controller - Recents-->
         <scene sceneID="VsJ-AV-DAd">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3B-kx-6JR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="4Y1-ZE-VDS" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="4Y1-ZE-VDS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recents" image="11-clock.png" id="SNv-UP-SYO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3q4-Ae-bks">
@@ -268,6 +292,10 @@
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eTO-fB-A2y">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="CF1-3I-cHE" kind="relationship" relationship="rootViewController" id="spx-4Z-rOL"/>
                     </connections>
@@ -281,15 +309,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUN-Ld-kYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="h5U-11-b7S" customClass="FlickrPhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="redraw" id="qvh-Wh-sOo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.33000000000000002" maximumZoomScale="3" id="kYv-k9-ZuZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="TopLeft" id="4Ne-2h-dWh">
-                                        <rect key="frame" x="0.0" y="-6" width="320" height="367"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
@@ -307,7 +335,33 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1029" y="-2907"/>
+            <point key="canvasLocation" x="2213" y="-2359"/>
+        </scene>
+        <!--Map View Controller - Map-->
+        <scene sceneID="gUJ-ag-jAB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6g5-hg-r2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="h7i-rc-azK" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xuk-fK-AOf">
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="2sX-1f-Fhe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="rkp-Z0-t1t"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="2sX-1f-Fhe" id="66g-Mq-J1C"/>
+                        <outlet property="view" destination="2sX-1f-Fhe" id="hIJ-hs-Tcc"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1656" y="-2992"/>
         </scene>
     </scenes>
     <resources>
@@ -340,6 +394,12 @@
                 <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="PhotoListTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
             <relationships>
@@ -353,4 +413,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="pcO-Wi-BJh"/>
+    </inferredMetricsTieBreakers>
 </document>

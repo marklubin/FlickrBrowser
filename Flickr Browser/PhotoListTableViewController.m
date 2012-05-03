@@ -9,15 +9,17 @@
 #import "PhotoListTableViewController.h"
 #import "FlickrFetcher.h"
 #import "MapViewController.h"
-#import "FlickrAnnontation.h"
+#import "FlickrAnnotation.h"
 
-@interface PhotoListTableViewController ()
-
+@interface PhotoListTableViewController ()<MapViewControllerDelagate,UIPopoverControllerDelegate>
+@property UIPopoverController *popover;
 @end
 
 @implementation PhotoListTableViewController
 @synthesize reloadButton = _reloadButton;
 @synthesize photos = _photos;
+@synthesize popover = _popover;
+
 
 - (IBAction)refreshTable:(UIBarButtonItem *)sender {
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -39,11 +41,36 @@
 }
 
 -(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath withSize:(FlickrPhotoFormat)size{
+    //TODO caching for photos
     NSURL *url = [FlickrFetcher urlForPhoto:[self.photos objectAtIndex:indexPath.row] 
                                      format:size];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     return image;
+}
+
+-(UIImage *)previewImageForAnnotation:(id<MKAnnotation>)annotation{
+    NSDictionary *photo = [(FlickrAnnotation *)annotation photo];
+    NSInteger row = [self.photos indexOfObject:photo];
+    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:row inSection:0];
+    return [self getImageforIndexPath:indexpath withSize:FlickrPhotoFormatSquare];
+}
+
+-(void)disclosureButtonPressedForAnnotation:(id<MKAnnotation>)annotation{
+    //keep the UI in sync by manually selecting the row
+    NSDictionary *photo = [(FlickrAnnotation *)annotation photo];
+    NSInteger row = [self.photos indexOfObject:photo];
+    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:row inSection:0];
+    [self.tableView selectRowAtIndexPath:indexpath animated:NO scrollPosition:UITableViewScrollPositionTop];
+    if(self.splitViewController){
+        //dismiss the popover and show the photo
+        [self.popover dismissPopoverAnimated:YES];
+        [self tableView:self.tableView didSelectRowAtIndexPath:indexpath];
+    }
+    else{
+        [self performSegueWithIdentifier:@"ShowImage" sender:self];
+    }
+    
 }
 
 -(NSDictionary *)parsePlaceName:(NSString *)place{
@@ -84,10 +111,15 @@
     if([segue.identifier isEqualToString:@"ShowMap"]){
         NSMutableArray *annotations = [[NSMutableArray alloc]initWithCapacity:self.photos.count];
         for (NSDictionary *photo in self.photos) {
-            [annotations addObject:[FlickrAnnontation flickrAnnotationForPhoto:photo]];
+            [annotations addObject:[FlickrAnnotation flickrAnnotationForPhoto:photo]];
         }
         MapViewController *mapVC= segue.destinationViewController;
         mapVC.annotations = annotations;
+        mapVC.delagate = self;
+        if(self.splitViewController){//if im on ipad
+            UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+            self.popover = popoverSegue.popoverController;
+        }
     }
                                             
 }
@@ -106,6 +138,8 @@
 }
 
 #pragma mark - Table view data source
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -162,13 +196,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+ 
 }
 
 @end

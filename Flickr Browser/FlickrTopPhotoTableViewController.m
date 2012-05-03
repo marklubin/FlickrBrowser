@@ -44,6 +44,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self refreshTable:self.reloadButton];
+    self.navigationController.toolbarHidden = YES;
 }
 
 

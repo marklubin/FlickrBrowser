@@ -112,6 +112,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [super prepareForSegue:segue sender:sender];
     if([segue.identifier isEqualToString:@"ShowRecentImage"]){
         FlickrPhotoViewController *fpVC = segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;

@@ -72,7 +72,7 @@
     self.scrollView.contentSize = self.image.size;
     self.imageView.image = self.image;
     self.imageView.frame = CGRectMake(self.scrollView.bounds.origin.x, self.scrollView.bounds.origin.y, self.imageView.image.size.width, self.imageView.image.size.height);
-    NSLog(@"%g,%g",self.imageView.frame.origin.x,self.imageView.frame.origin.y);
+    //NSLog(@"%g,%g",self.imageView.frame.origin.x,self.imageView.frame.origin.y);
     [self.scrollView zoomToRect:self.imageView.frame animated:NO];
 }
 
