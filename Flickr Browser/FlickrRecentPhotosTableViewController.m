@@ -128,13 +128,9 @@
 }
 
 
-
-
-
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    //allow all items to be editable
     return YES;
 }
 
@@ -142,13 +138,14 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remove from my defaults and my model if it is removed
         NSUserDefaults *defaults = [[NSUserDefaults alloc]init];
         NSMutableArray *photos = [self.photos mutableCopy];
         [photos removeObject:[self.photos objectAtIndex:indexPath.row]];
         self.photos = photos;
         [defaults removeObjectForKey:@"RecentPhotos"];
         [defaults setObject:photos forKey:@"RecentPhotos"];
-         
+        
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
