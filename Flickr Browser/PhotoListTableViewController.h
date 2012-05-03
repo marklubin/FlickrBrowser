@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSArray *photos;
 
 -(NSDictionary *)parsePlaceName:(NSString *)place;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender ;
 
 -(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath withSize:(FlickrPhotoFormat)size;
 //overwrite

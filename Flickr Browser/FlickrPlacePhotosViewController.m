@@ -131,17 +131,27 @@
     if(self.splitViewController){//if im on the ipad
         FlickrPhotoViewController *fpVC = [self.splitViewController.viewControllers lastObject];
         fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+        
+        
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [spinner startAnimating];
+        spinner.center = fpVC.scrollView.center;
+        [fpVC.view addSubview:spinner];
+
+                
         dispatch_queue_t queue = dispatch_queue_create("getPhoto", NULL);
         dispatch_async(queue, ^{
+            
             UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];
-            if([self.tableView.indexPathForSelectedRow isEqual:indexPath]){
+           
                 //if i'm still the selected row after i've grabbed the image the show it and add to recents
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    fpVC.image = image;
-                    [self updateRecents:indexPath];
+                     if([self.tableView.indexPathForSelectedRow isEqual:indexPath]){
+                         fpVC.image = image;
+                         [self updateRecents:indexPath];
+                     }
+                    [spinner removeFromSuperview];
                 });
-                
-            }
            
         }); 
          dispatch_release(queue);
@@ -152,10 +162,14 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [super prepareForSegue:segue sender:sender]; //try my subclass for the mapView segue
+    
     if([segue.identifier isEqualToString:@"ShowImage"]){
         FlickrPhotoViewController *fpVC = segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+        
+     
         dispatch_queue_t queue = dispatch_queue_create("getPhoto", NULL);
         dispatch_async(queue, ^{
             UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];

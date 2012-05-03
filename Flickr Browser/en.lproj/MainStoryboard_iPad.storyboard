@@ -26,7 +26,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="TopLeft" id="oJS-gx-MwX">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,7 +58,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XE0-Ee-SQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="f00-Qd-3vd" customClass="FlickrTopPhotoTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SpM-NZ-F51">
-                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -96,6 +96,14 @@
                             <outlet property="delegate" destination="f00-Qd-3vd" id="aR1-op-Hdd"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Map" id="JD3-JY-wNk">
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="TUW-ht-1XZ" kind="push" identifier="ShowMap" id="UPl-im-st5"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Top Places" id="jG2-8R-BX6">
                         <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="LzD-uU-dRV">
                             <connections>
@@ -103,6 +111,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="reloadButton" destination="LzD-uU-dRV" id="Rhh-Up-tmU"/>
                     </connections>
@@ -116,7 +125,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgm-VM-XhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="9VJ-Ku-wTY" customClass="FlickrPlacePhotosViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4gU-HB-Lva">
-                        <rect key="frame" x="0.0" y="64" width="320" height="739"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -151,6 +160,14 @@
                             <outlet property="delegate" destination="9VJ-Ku-wTY" id="9Bs-VW-XEM"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Map" id="twX-fb-qgs">
+                            <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="TUW-ht-1XZ" kind="push" identifier="ShowMap" id="svu-Bt-sBU"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Place Name Here" id="vxN-0E-FM3">
                         <barButtonItem key="rightBarButtonItem" image="01-refresh.png" id="Dzc-Kr-zQj">
                             <connections>
@@ -158,13 +175,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="reloadButton" destination="Dzc-Kr-zQj" id="s3Y-XP-8hp"/>
                         <outlet property="view" destination="4gU-HB-Lva" id="i8s-6a-H8o"/>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2840" y="-4141"/>
+            <point key="canvasLocation" x="3044" y="-4365"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="huk-Q1-FTN">
@@ -203,7 +221,7 @@
         <scene sceneID="0lB-Kh-StJ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1r2-C8-R1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="jbh-Pk-MD8" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="jbh-Pk-MD8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Top Places" image="28-star.png" id="OeA-Pq-375"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="elx-e9-Ptq">
@@ -212,6 +230,10 @@
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kLn-qT-GEf">
+                        <rect key="frame" x="0.0" y="808" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="f00-Qd-3vd" kind="relationship" relationship="rootViewController" id="z0J-Hc-CYM"/>
                     </connections>
@@ -267,7 +289,32 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2560" y="-2955"/>
+            <point key="canvasLocation" x="2562" y="-3087"/>
+        </scene>
+        <!--Map View Controller - Map-->
+        <scene sceneID="i3r-s8-ugk">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xuL-Tw-776" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="TUW-ht-1XZ" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yYL-TM-3MX">
+                        <rect key="frame" x="0.0" y="64" width="320" height="744"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="9gr-aO-Kkb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="744"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="gl3-ve-A9U"/>
+                    <connections>
+                        <outlet property="mapView" destination="9gr-aO-Kkb" id="iM9-vM-HlC"/>
+                        <outlet property="view" destination="9gr-aO-Kkb" id="kw0-3C-LXm"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3271" y="-3268"/>
         </scene>
         <!--Navigation Controller - Recent-->
         <scene sceneID="Vzf-Cw-Jfd">
@@ -287,7 +334,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2038" y="-2890"/>
+            <point key="canvasLocation" x="1890" y="-3104"/>
         </scene>
     </scenes>
     <resources>
@@ -295,42 +342,12 @@
         <image name="11-clock.png" width="25" height="25"/>
         <image name="28-star.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="FlickrPhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="FlickrPlacePhotosViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPlacePhotosViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="FlickrRecentPhotosTableViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentPhotosTableViewController.h"/>
-        </class>
-        <class className="FlickrTopPhotoTableViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTopPhotoTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PhotoListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="svu-Bt-sBU"/>
+    </inferredMetricsTieBreakers>
 </document>

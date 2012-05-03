@@ -86,16 +86,22 @@
     if(self.splitViewController){//if im on the ipad
         FlickrPhotoViewController *fpVC = [self.splitViewController.viewControllers lastObject];
         fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [spinner startAnimating];
+        spinner.center = fpVC.scrollView.center;
+        [fpVC.view addSubview:spinner];
         dispatch_queue_t queue = dispatch_queue_create("getPhoto", NULL);
         dispatch_async(queue, ^{
             UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];
-            if([self.tableView.indexPathForSelectedRow isEqual:indexPath]){
+           
                 //if i'm still the selected row after i've grabbed the image the show it and add to recents
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    fpVC.image = image;
+                    if([self.tableView.indexPathForSelectedRow isEqual:indexPath]){
+                        fpVC.image = image;
+                    }
+                    [spinner removeFromSuperview];
                 });
                 
-            }
             
         });
          dispatch_release(queue);

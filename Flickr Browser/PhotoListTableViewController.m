@@ -8,6 +8,7 @@
 
 #import "PhotoListTableViewController.h"
 #import "FlickrFetcher.h"
+#import "MapViewController.h"
 
 @interface PhotoListTableViewController ()
 
@@ -67,11 +68,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self.navigationController.toolbar setTintColor:[UIColor blackColor]];
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.toolbarHidden = NO;
+
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"ShowMap"]){
+        NSMutableArray *annotations = [[NSMutableArray alloc]initWithCapacity:self.photos.count];
+        for (NSDictionary *photo in self.photos) {
+            //create an annotation and add to the list
+        }
+        MapViewController *mapVC= segue.destinationViewController;
+        mapVC.annotations = annotations;
+    }
+                                            
 }
 
 - (void)viewDidUnload

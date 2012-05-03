@@ -69,12 +69,11 @@
 
 
 -(void)updateImage{//fix scrolling on iphone
+    self.scrollView.contentSize = self.image.size;
     self.imageView.image = self.image;
-    self.imageView.frame = CGRectMake(0.0, 0.0, self.image.size.width, self.image.size.height);
-    self.scrollView.contentSize = self.imageView.image.size;
-    CGRect rectForZoom = CGRectMake(0., 0., self.image.size.width, self.image.size.height);
-    [self.scrollView zoomToRect:rectForZoom animated:YES];
-    [self.scrollView setNeedsDisplay];
+    self.imageView.frame = CGRectMake(self.scrollView.bounds.origin.x, self.scrollView.bounds.origin.y, self.imageView.image.size.width, self.imageView.image.size.height);
+    NSLog(@"%g,%g",self.imageView.frame.origin.x,self.imageView.frame.origin.y);
+    [self.scrollView zoomToRect:self.imageView.frame animated:NO];
 }
 
 - (void)viewDidUnload
