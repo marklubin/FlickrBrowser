@@ -11,8 +11,9 @@
 @interface FileCacheManager : NSObject
 
 //to do add designated initializer that specifies where to look for cache
+-(FileCacheManager *)initWithCacheDirectoryName:(NSString *)directoryName;
 -(BOOL)cacheContainsFileWithUniqueIdentifier:(NSString *)identifier;
 -(NSData *)dataForFileWithUniqueIdentifier:(NSString *)identifier;
--(void)saveDataToCache:(NSData *)withUniqueIdentifier:(NSString *)identifier;
+-(void)saveDataToCache:(NSData *)data withUniqueIdentifier:(NSString *)identifier;
 
 @end

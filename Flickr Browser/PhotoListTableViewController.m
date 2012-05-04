@@ -11,6 +11,7 @@
 #import "MapViewController.h"
 #import "FlickrAnnotation.h"
 #import "FileCacheManager.h"
+#define CACHE_DIR_NAME @"FlickrLargePhotosCache"
 
 @interface PhotoListTableViewController ()<MapViewControllerDelagate,UIPopoverControllerDelegate>
 @property UIPopoverController *popover;
@@ -25,7 +26,7 @@
 
 -(FileCacheManager *)cacheManager{//lazily instaniate cache manager
     //todo maybe change to designated initializer that specifies cache
-    if(!_cacheManager) _cacheManager = [[FileCacheManager alloc]init];
+    if(!_cacheManager) _cacheManager = [[FileCacheManager alloc]initWithCacheDirectoryName:CACHE_DIR_NAME];
     return _cacheManager;
 }
 
@@ -68,7 +69,7 @@
         
           //if i don't have it in the cache and its large let cacheManger save it
         if(size == FlickrPhotoFormatLarge){
-            [self.cacheManager saveDataToCache:data:[photo valueForKey:FLICKR_PHOTO_ID]];
+            [self.cacheManager saveDataToCache:data withUniqueIdentifier:photoID];
         }
         
     }
@@ -146,7 +147,7 @@
         mapVC.delagate = self;
         if(self.splitViewController){//if im on ipad
             UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
-            self.popover = popoverSegue.popoverController;
+            self.popover = popoverSegue.popoverController; //ill need a pointer to the popover so i can dismiss it later
         }
     }
                                             
