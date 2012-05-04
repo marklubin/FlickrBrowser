@@ -10,15 +10,24 @@
 #import "FlickrFetcher.h"
 #import "MapViewController.h"
 #import "FlickrAnnotation.h"
+#import "FileCacheManager.h"
 
 @interface PhotoListTableViewController ()<MapViewControllerDelagate,UIPopoverControllerDelegate>
 @property UIPopoverController *popover;
+@property (nonatomic,strong) FileCacheManager *cacheManager;
 @end
 
 @implementation PhotoListTableViewController
 @synthesize reloadButton = _reloadButton;
 @synthesize photos = _photos;
 @synthesize popover = _popover;
+@synthesize cacheManager = _cacheManager;
+
+-(FileCacheManager *)cacheManager{//lazily instaniate cache manager
+    //todo maybe change to designated initializer that specifies cache
+    if(!_cacheManager) _cacheManager = [[FileCacheManager alloc]init];
+    return _cacheManager;
+}
 
 
 - (IBAction)refreshTable:(UIBarButtonItem *)sender {
@@ -41,11 +50,30 @@
 }
 
 -(UIImage *)getImageforIndexPath:(NSIndexPath *)indexPath withSize:(FlickrPhotoFormat)size{
-    //TODO caching for photos
-    NSURL *url = [FlickrFetcher urlForPhoto:[self.photos objectAtIndex:indexPath.row] 
-                                     format:size];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *image = [UIImage imageWithData:data];
+    UIImage *image;
+    NSData *data;
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+    NSString *photoID = [photo valueForKey:FLICKR_PHOTO_ID];
+    
+    
+    if(size == FlickrPhotoFormatLarge
+        && [self.cacheManager cacheContainsFileWithUniqueIdentifier:photoID]){
+        
+        //only want to get from the cache for large images
+        data = [self.cacheManager dataForFileWithUniqueIdentifier:photoID];
+        
+    }else{
+        NSURL *url = [FlickrFetcher urlForPhoto:photo format:size];
+        data = [NSData dataWithContentsOfURL:url];
+        
+          //if i don't have it in the cache and its large let cacheManger save it
+        if(size == FlickrPhotoFormatLarge){
+            [self.cacheManager saveDataToCache:data:[photo valueForKey:FLICKR_PHOTO_ID]];
+        }
+        
+    }
+    
+    image = [UIImage imageWithData:data];
     return image;
 }
 

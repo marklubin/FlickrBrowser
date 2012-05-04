@@ -11,6 +11,7 @@
 		4D2C3CB11552F74500A1779A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C3CB01552F74500A1779A /* MapViewController.m */; };
 		4D2C3CB515530A2400A1779A /* FlickrAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C3CB415530A2400A1779A /* FlickrAnnotation.m */; };
 		4D2C3CBB15530F0100A1779A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2C3CBA15530F0100A1779A /* CoreLocation.framework */; };
+		4D4F919B155473F900274FE9 /* FileCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4F919A155473F900274FE9 /* FileCacheManager.m */; };
 		4D854625154F6B050098BC0E /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D854624154F6B050098BC0E /* FlickrFetcher.m */; };
 		4D85462C154F79300098BC0E /* FlickrPlacePhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D85462B154F79300098BC0E /* FlickrPlacePhotosViewController.m */; };
 		4DAC381A154F3D6700886607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAC3819154F3D6700886607 /* UIKit.framework */; };
@@ -35,9 +36,11 @@
 		4D0B45831550341D00E5213E /* FlickrRecentPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrRecentPhotosTableViewController.m; sourceTree = "<group>"; };
 		4D2C3CAF1552F74500A1779A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4D2C3CB01552F74500A1779A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		4D2C3CB315530A2400A1779A /* FlickrAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FlickrAnnotation.h; sourceTree = "<group>"; };
+		4D2C3CB315530A2400A1779A /* FlickrAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAnnotation.h; sourceTree = "<group>"; };
 		4D2C3CB415530A2400A1779A /* FlickrAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAnnotation.m; sourceTree = "<group>"; };
 		4D2C3CBA15530F0100A1779A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4D4F9199155473F900274FE9 /* FileCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCacheManager.h; sourceTree = "<group>"; };
+		4D4F919A155473F900274FE9 /* FileCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCacheManager.m; sourceTree = "<group>"; };
 		4D854622154F6B050098BC0E /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		4D854623154F6B050098BC0E /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		4D854624154F6B050098BC0E /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 		4DAC381F154F3D6700886607 /* Flickr Browser */ = {
 			isa = PBXGroup;
 			children = (
+				4D4F9199155473F900274FE9 /* FileCacheManager.h */,
+				4D4F919A155473F900274FE9 /* FileCacheManager.m */,
 				4D2C3CB315530A2400A1779A /* FlickrAnnotation.h */,
 				4D2C3CB415530A2400A1779A /* FlickrAnnotation.m */,
 				4D2C3CAF1552F74500A1779A /* MapViewController.h */,
@@ -233,6 +238,7 @@
 				4D0B45841550341D00E5213E /* FlickrRecentPhotosTableViewController.m in Sources */,
 				4D2C3CB11552F74500A1779A /* MapViewController.m in Sources */,
 				4D2C3CB515530A2400A1779A /* FlickrAnnotation.m in Sources */,
+				4D4F919B155473F900274FE9 /* FileCacheManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
