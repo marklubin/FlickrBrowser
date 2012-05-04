@@ -10,17 +10,20 @@
 #import "FlickrFetcher.h"
 #import "FlickrTopPhotoTableViewController.h"
 #import "FlickrPhotoViewController.h"
-#define MAX_RESULTS 50
+#define MAX_RESULTS 200
+#define RESULTS_PER_LOAD 50
+
 //TODO enable loading of more photos
 
 @interface FlickrPlacePhotosViewController()
-
-
+@property NSUInteger resultsToDisplay;
 @end
 
 @implementation FlickrPlacePhotosViewController
+@synthesize morePhotosButton = _morePhotosButton;
 @synthesize reloadButton = _reloadButton;
 @synthesize place = _place;
+@synthesize resultsToDisplay = _resultsToDisplay;
 
 
 -(void)setPlace:(NSDictionary *)place{
@@ -31,7 +34,20 @@
     }
 }
 -(IBAction)refreshTable:(UIBarButtonItem *)sender{
+    if(!self.resultsToDisplay) self.resultsToDisplay = RESULTS_PER_LOAD;
     [super refreshTable:sender];
+}
+
+- (IBAction)morePhotoPressed:(UIButton *)sender {//a bad implementation of loading more results
+    if(self.resultsToDisplay + RESULTS_PER_LOAD >= MAX_RESULTS){
+        self.resultsToDisplay = MAX_RESULTS;
+        self.morePhotosButton.hidden = YES;
+        [self.morePhotosButton setNeedsDisplay];
+    } else{
+        self.resultsToDisplay += RESULTS_PER_LOAD;
+    }
+    [self refreshTable:self.reloadButton];
+   
 }
 
 
@@ -48,7 +64,7 @@
 }
 
 -(void)getTableData{
-    self.photos = [FlickrFetcher photosInPlace:self.place maxResults:MAX_RESULTS];
+    self.photos = [FlickrFetcher photosInPlace:self.place maxResults:self.resultsToDisplay];
 }
 
 -(void)viewDidLoad{
@@ -191,5 +207,9 @@
 
     
     }
+}
+- (void)viewDidUnload {
+    [self setMorePhotosButton:nil];
+    [super viewDidUnload];
 }
 @end

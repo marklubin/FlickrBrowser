@@ -10,6 +10,7 @@
 #import "PhotoListTableViewController.h"
 
 @interface FlickrPlacePhotosViewController: PhotoListTableViewController
+@property (weak, nonatomic) IBOutlet UIButton *morePhotosButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *reloadButton;
 @property (strong,nonatomic) NSDictionary *place;
 @end
