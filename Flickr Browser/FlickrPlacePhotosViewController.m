@@ -11,8 +11,10 @@
 #import "FlickrTopPhotoTableViewController.h"
 #import "FlickrPhotoViewController.h"
 #define MAX_RESULTS 50
+//TODO enable loading of more photos
 
 @interface FlickrPlacePhotosViewController()
+
 
 @end
 
@@ -59,10 +61,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)                       section
 {
     return self.photos.count;
+   
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     NSString *CellIdentifier = @"PlacePhoto";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];

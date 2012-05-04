@@ -24,6 +24,7 @@
 @synthesize delagate = _delagate;
 
 - (IBAction)mapTypeSelectorChanged:(UISegmentedControl *)sender {
+    //y you no show up?
     int mapType = sender.selectedSegmentIndex;
     if(mapType == STREET_MAP_SELECTED) self.mapView.mapType = MKMapTypeStandard;
     if(mapType == SAT_MAP_SELECTED) self.mapView.mapType = MKMapTypeSatellite;
@@ -52,22 +53,22 @@
             if(annotation.coordinate.latitude > maxLat) maxLat = annotation.coordinate.latitude;
             if(annotation.coordinate.latitude < minLat) minLat = annotation.coordinate.latitude;
             if(annotation.coordinate.longitude > maxLong) maxLong = annotation.coordinate.longitude;
-            if(annotation.coordinate.latitude < minLong) minLong = annotation.coordinate.longitude;
+            if(annotation.coordinate.longitude < minLong) minLong = annotation.coordinate.longitude;
         }
     }
     CLLocationDegrees latDelta = fabs(maxLat - minLat);
     CLLocationDegrees longDelta = fabs(maxLong - minLong);
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(minLat + latDelta/2, minLong + longDelta/2);
-    MKCoordinateSpan span = MKCoordinateSpanMake(latDelta + .1 * latDelta, longDelta + .1 * longDelta);
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(minLat + latDelta/2., minLong + longDelta/2.);
+    MKCoordinateSpan span = MKCoordinateSpanMake(latDelta + .05 * latDelta, longDelta + .05 * longDelta);
     MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
     return region;
-
 }
 
 -(void)updateMap{
     if(self.mapView.annotations) [self.mapView removeAnnotations:self.mapView.annotations];
     if(self.annotations) [self.mapView addAnnotations:self.annotations];
-    [self.mapView setRegion:[self calculateRegionFromAnnotations]];
+    MKCoordinateRegion region =[self.mapView regionThatFits:[self calculateRegionFromAnnotations]];
+    [self.mapView setRegion:region];
 }
 
 -(void)setMapView:(MKMapView *)mapView{
