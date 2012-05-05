@@ -17,14 +17,16 @@
 +(id<MKAnnotation>)flickrAnnotationForPhoto:(NSDictionary *)photo{
     FlickrAnnotation *annotation = [[FlickrAnnotation alloc]init];
     annotation.photo = photo;
-
-    
     return annotation;
     
 }
 
 -(NSString *)title{
-    return [self.photo objectForKey:FLICKR_PHOTO_TITLE];
+    //you need a title for the Callout to show so Make sure it is set to something besides the empty string
+    NSString *title = [self.photo objectForKey:FLICKR_PHOTO_TITLE];
+    if([title isEqualToString:@""]) title = [self.photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    if([title isEqualToString:@""]) title = @"Unknown";
+    return title;
 }
 
 -(NSString *)subtitle{
