@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol VacationPhotoStatusDelagate 
+
+-(BOOL)photoIsVisited:(NSString *)photoID;
+
+@end
+
 @interface FlickrPhotoViewController : UIViewController
     <UISplitViewControllerDelegate,UIScrollViewDelegate>;
 
@@ -18,6 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *visitButton;
-
+@property (strong,nonatomic) NSString *photoID;
 
 @end

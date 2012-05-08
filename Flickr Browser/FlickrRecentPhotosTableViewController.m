@@ -116,6 +116,7 @@
     if([segue.identifier isEqualToString:@"ShowRecentImage"]){
         FlickrPhotoViewController *fpVC = segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
         dispatch_queue_t queue = dispatch_queue_create("getPhoto", NULL);
         dispatch_async(queue, ^{
             UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];
@@ -123,6 +124,7 @@
                 //if i'm still the selected row after i've grabbed the image the show it and add to recents
                 dispatch_async(dispatch_get_main_queue(), ^{
                     fpVC.image = image;
+                    fpVC.photoID = [photo valueForKey:FLICKR_PHOTO_ID];
                 });
                 
             }
