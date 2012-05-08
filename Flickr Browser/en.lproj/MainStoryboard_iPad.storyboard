@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D2001" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="PNn-Vu-ANO">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -67,11 +66,11 @@
             </objects>
             <point key="canvasLocation" x="671" y="144"/>
         </scene>
-        <!--Table View Controller - Add Photo to:-->
+        <!--Edit PhotoTVC - Add Photo to:-->
         <scene sceneID="2eN-yh-7Fp">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g09-Cg-nPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="aui-Oc-x2y" sceneMemberID="viewController">
+                <tableViewController id="aui-Oc-x2y" customClass="EditPhotoTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="m3B-h4-Jyo">
                         <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,11 +359,11 @@
             </objects>
             <point key="canvasLocation" x="1975" y="-3220"/>
         </scene>
-        <!--Table View Controller - Vacations-->
+        <!--VacationsTVC - Vacations-->
         <scene sceneID="anO-9g-cQn">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAZ-OI-5Fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="RAh-yi-zwA" sceneMemberID="viewController">
+                <tableViewController id="RAh-yi-zwA" customClass="VacationsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0uh-UY-dhG">
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -393,11 +392,11 @@
             </objects>
             <point key="canvasLocation" x="1249" y="-1642"/>
         </scene>
-        <!--Table View Controller - Places-->
+        <!--PlacesTVC - Places-->
         <scene sceneID="rjz-7y-lRm">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctM-VQ-zYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="rE7-3U-aKK" sceneMemberID="viewController">
+                <tableViewController id="rE7-3U-aKK" customClass="PlacesTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vK8-ZF-VhQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,11 +425,11 @@
             </objects>
             <point key="canvasLocation" x="2969" y="-2227"/>
         </scene>
-        <!--Table View Controller - Photos-->
+        <!--Vacation PhotosTVC - Photos-->
         <scene sceneID="5Al-OC-hNb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAR-zh-vc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="HTX-AI-Ekq" sceneMemberID="viewController">
+                <tableViewController id="HTX-AI-Ekq" customClass="VacationPhotosTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nus-xU-Mf8">
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -456,11 +455,11 @@
             </objects>
             <point key="canvasLocation" x="3701" y="-1722"/>
         </scene>
-        <!--Table View Controller - Vacation Name Here-->
+        <!--Itinerary TagsTVC - Vacation Name Here-->
         <scene sceneID="2WO-MI-wyj">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOH-S4-fpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="98G-nV-CGh" sceneMemberID="viewController">
+                <tableViewController id="98G-nV-CGh" customClass="ItineraryTagsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="syg-87-pjE">
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -523,11 +522,11 @@
             </objects>
             <point key="canvasLocation" x="1975" y="-1654"/>
         </scene>
-        <!--Table View Controller - Tags-->
+        <!--TagsTVC - Tags-->
         <scene sceneID="9Qd-8o-Odm">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGC-EL-UeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="bRZ-Y5-sMY" sceneMemberID="viewController">
+                <tableViewController id="bRZ-Y5-sMY" customClass="TagsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V2b-hY-aDD">
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -648,6 +647,12 @@
         <image name="28-star.png" width="26" height="26"/>
     </resources>
     <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="EditPhotoTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoTVC.h"/>
+        </class>
         <class className="FlickrPhotoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
             <relationships>
@@ -674,6 +679,9 @@
                 <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
+        <class className="ItineraryTagsTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItineraryTagsTVC.h"/>
+        </class>
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
@@ -687,6 +695,18 @@
                 <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
+        <class className="PlacesTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTVC.h"/>
+        </class>
+        <class className="TagsTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagsTVC.h"/>
+        </class>
+        <class className="VacationPhotosTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationPhotosTVC.h"/>
+        </class>
+        <class className="VacationsTVC" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationsTVC.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
@@ -695,6 +715,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="svu-Bt-sBU"/>
-        <segue reference="o2n-dO-LBW"/>
+        <segue reference="Pew-fn-OwC"/>
     </inferredMetricsTieBreakers>
 </document>
