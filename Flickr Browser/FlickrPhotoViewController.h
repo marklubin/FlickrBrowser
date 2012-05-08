@@ -25,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *visitButton;
 @property (strong,nonatomic) NSString *photoID;
+@property (weak,nonatomic) id<VacationPhotoStatusDelagate> vacationPhotoStatusDelagate;
 
 @end

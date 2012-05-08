@@ -14,19 +14,19 @@
 
 @implementation EditPhotoTVC
 @synthesize photo = _photo;
+@synthesize photoID = _photoID;
 @synthesize toAdd = _toAdd;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //change title based on mode
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"VacationPhotoEditCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...

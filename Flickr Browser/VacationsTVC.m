@@ -7,16 +7,31 @@
 //
 
 #import "VacationsTVC.h"
+#import "FlickrPhotoViewController.h"
 
-@interface VacationsTVC ()
+@interface VacationsTVC ()<VacationPhotoStatusDelagate>
 
 @end
 
 @implementation VacationsTVC
 
+-(void)awakeFromNib{
+    //set my self up as the photo status delagate for the image view when i wake up
+    
+    FlickrPhotoViewController *fPTVC =  [self.splitViewController.viewControllers lastObject];
+    fPTVC.vacationPhotoStatusDelagate = self;
+
+}
+-(BOOL)photoIsVisited:(NSString *)photoID{
+    //return whether or not this photo exists in my database
+    return YES;
+}
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"VacationsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...

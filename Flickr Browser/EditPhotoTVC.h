@@ -14,6 +14,7 @@
 @interface EditPhotoTVC : CoreDataTableViewController
 @property Photo *photo;
 @property BOOL toAdd;
+@property NSString *photoID;
 
 
 @end

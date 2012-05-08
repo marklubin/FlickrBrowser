@@ -7,6 +7,7 @@
 //
 
 #import "FlickrPhotoViewController.h"
+#import "EditPhotoTVC.h"
 
 @interface FlickrPhotoViewController ()
 
@@ -20,12 +21,8 @@
 @synthesize imageView = _imageView;
 @synthesize visitButton = _visitButton;
 @synthesize imageTitle = _imageTitle;
-
-- (IBAction)visitedPressed:(UIBarButtonItem *)sender {
-    //if this photo is already in a database send someone a message to unvisit it
-    //otherwise do a popover seque to select which vacation they want to add it to
-    [self.navigationController performSegueWithIdentifier:@"AddVisited" sender:self];
-}
+@synthesize photoID = _photoID;
+@synthesize vacationPhotoStatusDelagate = _vacationPhotoStatusDelagate;
 
 -(void)setImage:(UIImage *)image{
     if(_image != image){
@@ -75,12 +72,22 @@
 }
 
 
--(void)updateImage{//fix scrolling on iphone
+-(void)updateImage{
     self.scrollView.contentSize = self.image.size;
     self.imageView.image = self.image;
     self.imageView.frame = CGRectMake(self.scrollView.bounds.origin.x, self.scrollView.bounds.origin.y, self.imageView.image.size.width, self.imageView.image.size.height);
     //NSLog(@"%g,%g",self.imageView.frame.origin.x,self.imageView.frame.origin.y);
     [self.scrollView zoomToRect:self.imageView.frame animated:NO];
+    NSString *barButtonText;
+    
+    //check the vacation status of the photo and set the button
+    if([self.vacationPhotoStatusDelagate photoIsVisited:self.photoID]){
+        barButtonText = @"Unvisit";
+    } else{
+        barButtonText = @"Visit";
+    }
+    self.visitButton.title = barButtonText;
+    [self.toolbar setNeedsDisplay];
 }
 
 - (void)viewDidUnload
@@ -93,6 +100,14 @@
     [self setVisitButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //sending the edttiing VC my photoID
+    if([segue.identifier isEqualToString:@"ShowPhotoEdit"]){
+        EditPhotoTVC *tvc = segue.destinationViewController;
+        tvc.photoID = self.photoID;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
