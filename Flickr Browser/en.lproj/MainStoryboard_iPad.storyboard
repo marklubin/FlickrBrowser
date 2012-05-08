@@ -65,7 +65,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="498" y="80"/>
+            <point key="canvasLocation" x="671" y="144"/>
         </scene>
         <!--Table View Controller - Add Photo to:-->
         <scene sceneID="2eN-yh-7Fp">
@@ -96,7 +96,7 @@
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2403" y="70"/>
+            <point key="canvasLocation" x="2755" y="118"/>
         </scene>
         <!--Flickr Top Photo Table View Controller - Top Places-->
         <scene sceneID="Jqq-KM-p0w">
@@ -156,7 +156,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2751" y="-4525"/>
+            <point key="canvasLocation" x="1667" y="-4366"/>
         </scene>
         <!--Flickr Place Photos View Controller - Place Name Here-->
         <scene sceneID="c89-kb-RMJ">
@@ -239,7 +239,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3166" y="-4635"/>
+            <point key="canvasLocation" x="2206" y="-4375"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="huk-Q1-FTN">
@@ -253,7 +253,7 @@
                     </connections>
                 </splitViewController>
             </objects>
-            <point key="canvasLocation" x="177" y="-1970"/>
+            <point key="canvasLocation" x="-2223" y="-2010"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Bwb-Cu-Gaz">
@@ -273,7 +273,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="935" y="-4033"/>
+            <point key="canvasLocation" x="79" y="-3769"/>
         </scene>
         <!--Navigation Controller - Top Places-->
         <scene sceneID="0lB-Kh-StJ">
@@ -297,7 +297,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2320" y="-4498"/>
+            <point key="canvasLocation" x="1148" y="-4366"/>
         </scene>
         <!--Flickr Recent Photos Table View Controller - Recent Photos-->
         <scene sceneID="GRe-Dk-S4m">
@@ -358,7 +358,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3348" y="-3511"/>
+            <point key="canvasLocation" x="1975" y="-3220"/>
         </scene>
         <!--Table View Controller - Vacations-->
         <scene sceneID="anO-9g-cQn">
@@ -391,7 +391,7 @@
                     <navigationItem key="navigationItem" title="Vacations" id="Pdr-LM-HZu"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2105" y="-1906"/>
+            <point key="canvasLocation" x="1249" y="-1642"/>
         </scene>
         <!--Table View Controller - Places-->
         <scene sceneID="rjz-7y-lRm">
@@ -424,7 +424,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3825" y="-2491"/>
+            <point key="canvasLocation" x="2969" y="-2227"/>
         </scene>
         <!--Table View Controller - Photos-->
         <scene sceneID="5Al-OC-hNb">
@@ -454,29 +454,29 @@
                     <navigationItem key="navigationItem" title="Photos" id="Ve2-lT-OMU"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="4557" y="-1986"/>
+            <point key="canvasLocation" x="3701" y="-1722"/>
         </scene>
         <!--Table View Controller - Vacation Name Here-->
         <scene sceneID="2WO-MI-wyj">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOH-S4-fpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="98G-nV-CGh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="syg-87-pjE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="syg-87-pjE">
                         <rect key="frame" x="0.0" y="64" width="320" height="739"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="yTM-o0-3ja">
+                            <tableViewSection headerTitle="" id="yTM-o0-3ja">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="USa-S2-fPY" style="IBUITableViewCellStyleDefault" id="FfR-Ce-Osh">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Itinerary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="USa-S2-fPY">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -490,14 +490,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="kqw-bm-RbS" style="IBUITableViewCellStyleDefault" id="oHG-M7-kA2">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kqw-bm-RbS">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -521,7 +521,7 @@
                     <navigationItem key="navigationItem" title="Vacation Name Here" id="QKv-Af-vCV"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2831" y="-1918"/>
+            <point key="canvasLocation" x="1975" y="-1654"/>
         </scene>
         <!--Table View Controller - Tags-->
         <scene sceneID="9Qd-8o-Odm">
@@ -554,7 +554,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3825" y="-1354"/>
+            <point key="canvasLocation" x="2969" y="-1090"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="i3r-s8-ugk">
@@ -579,7 +579,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3717" y="-4288"/>
+            <point key="canvasLocation" x="2861" y="-4024"/>
         </scene>
         <!--Navigation Controller - Recent-->
         <scene sceneID="Vzf-Cw-Jfd">
@@ -599,7 +599,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="2812" y="-3572"/>
+            <point key="canvasLocation" x="1440" y="-3220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Or4-b8-UOi">
@@ -619,7 +619,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1429" y="70"/>
+            <point key="canvasLocation" x="1725" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lGs-J0-ERT">
@@ -639,7 +639,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1417" y="-1918"/>
+            <point key="canvasLocation" x="561" y="-1654"/>
         </scene>
     </scenes>
     <resources>
@@ -694,7 +694,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Pew-fn-OwC"/>
-        <segue reference="0ua-9z-QS9"/>
+        <segue reference="svu-Bt-sBU"/>
+        <segue reference="o2n-dO-LBW"/>
     </inferredMetricsTieBreakers>
 </document>
