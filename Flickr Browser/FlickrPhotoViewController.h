@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface FlickrPhotoViewController : UIViewController
     <UISplitViewControllerDelegate,UIScrollViewDelegate>;
 
@@ -19,6 +17,7 @@
 @property (strong,nonatomic) NSString *imageTitle;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *visitButton;
 
 
 @end

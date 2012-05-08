@@ -18,8 +18,14 @@
 @synthesize image = _image;
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
+@synthesize visitButton = _visitButton;
 @synthesize imageTitle = _imageTitle;
 
+- (IBAction)visitedPressed:(UIBarButtonItem *)sender {
+    //if this photo is already in a database send someone a message to unvisit it
+    //otherwise do a popover seque to select which vacation they want to add it to
+    [self.navigationController performSegueWithIdentifier:@"AddVisited" sender:self];
+}
 
 -(void)setImage:(UIImage *)image{
     if(_image != image){
@@ -59,6 +65,7 @@
 {
     [super viewDidLoad];
     //set myself up as the delegate for splitview and scrollview
+    //ask my delagate how the visit button should read
     self.splitViewController.delegate = self;   
     self.scrollView.delegate =self;
     self.splitViewController.presentsWithGesture = NO;
@@ -83,6 +90,7 @@
     [self setScrollView:nil];
     [self setScrollView:nil];
     [self setImageView:nil];
+    [self setVisitButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
