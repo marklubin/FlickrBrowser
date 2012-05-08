@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface VacationsTVC : UITableViewController
+#import "Vacation.h"
+#import "CoreDataTableViewController.h"
+@interface VacationsTVC : CoreDataTableViewController
 
 @end

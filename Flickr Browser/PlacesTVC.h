@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Place.h"
+#import "Vacation.h"
+#import "CoreDataTableViewController.h"
 
-@interface PlacesTVC : UITableViewController
+@interface PlacesTVC : CoreDataTableViewController
+@property Vacation *vacation;
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
+#import "Place.h"
+#import "Tag.h"
+#import "CoreDataTableViewController.h"
 
-@interface VacationPhotosTVC : UITableViewController
+@interface VacationPhotosTVC : CoreDataTableViewController
+@property NSPredicate *predicate;
 
 @end

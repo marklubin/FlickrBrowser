@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Vacation.h"
+#import "Photo.h"
+#import "CoreDataTableViewController.h"
 
-@interface EditPhotoTVC : UITableViewController
+@interface EditPhotoTVC : CoreDataTableViewController
+@property Photo *photo;
+@property BOOL toAdd;
+
 
 @end

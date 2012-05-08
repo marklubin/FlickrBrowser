@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tag.h"
+#import "Photo.h"
+#import "Vacation.h"
+#import "CoreDataTableViewController.h"
 
-@interface TagsTVC : UITableViewController
+@interface TagsTVC : CoreDataTableViewController
+@property Vacation *vacation;
 
 @end
