@@ -87,7 +87,7 @@
         FlickrPhotoViewController *fpVC = [self.splitViewController.viewControllers lastObject];
         fpVC.imageTitle = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        fpVC.photoID = [photo valueForKey:FLICKR_PHOTO_ID];
+        fpVC.photo = photo;
         UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [spinner startAnimating];
         spinner.center = fpVC.scrollView.center;
@@ -119,7 +119,7 @@
         FlickrPhotoViewController *fpVC = segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-        fpVC.photoID = [photo valueForKey:FLICKR_PHOTO_ID];
+        fpVC.photo = photo;
         dispatch_queue_t queue = dispatch_queue_create("getPhoto", NULL);
         dispatch_async(queue, ^{
             UIImage *image = [self getImageforIndexPath:indexPath withSize:FlickrPhotoFormatLarge];

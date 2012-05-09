@@ -8,19 +8,29 @@
 
 #import "VacationsTVC.h"
 #import "FlickrPhotoViewController.h"
+#import "VacationsDBHelper.h"
 
 @interface VacationsTVC ()<VacationPhotoStatusDelagate>
 
 @end
 
 @implementation VacationsTVC
+@synthesize vacationsDB = _vacationsDB;
+
+-(void)setVacationsDB:(UIManagedDocument *)vacationsDB{
+    //do stuff my freshily opened vacations DB create default vacation if its not there
+    _vacationsDB = vacationsDB;
+}
 
 -(void)awakeFromNib{
     //set my self up as the photo status delagate for the image view when i wake up
     
     FlickrPhotoViewController *fPTVC =  [self.splitViewController.viewControllers lastObject];
     fPTVC.vacationPhotoStatusDelagate = self;
-    //when i load get my vacations create the file if it doesn't exists and create a default vacation if there are none
+    [VacationsDBHelper openVacationsDBwithCallbackto:self
+                                       usingSelector:@selector(setVacationsDB:)];
+    
+    
 
 }
 -(BOOL)photoIsVisited:(id)photo{

@@ -7,6 +7,7 @@
 //
 
 #import "Photo+Utils.h"
+#import "FlickrFetcher.h"
 
 @implementation Photo (Utils)
 +(Photo *)photoForFlickrPhoto:(NSDictionary *)flickrPhoto{

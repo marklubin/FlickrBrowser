@@ -10,5 +10,6 @@
 #import "Vacation.h"
 #import "CoreDataTableViewController.h"
 @interface VacationsTVC : CoreDataTableViewController
+@property (strong, nonatomic)UIManagedDocument *vacationsDB;
 
 @end
