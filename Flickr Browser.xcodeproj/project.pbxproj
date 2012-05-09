@@ -20,7 +20,6 @@
 		4D8EFA0415598E24005CB8ED /* FlickrBrowser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA0215598E24005CB8ED /* FlickrBrowser.xcdatamodeld */; };
 		4D8EFA381559C4FF005CB8ED /* Vacation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA371559C4FF005CB8ED /* Vacation.m */; };
 		4D8EFA3B1559C4FF005CB8ED /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA3A1559C4FF005CB8ED /* Place.m */; };
-		4D8EFA3E1559C4FF005CB8ED /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA3D1559C4FF005CB8ED /* Photo.m */; };
 		4D8EFA411559C500005CB8ED /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA401559C4FF005CB8ED /* Tag.m */; };
 		4D8EFA4F1559C7C1005CB8ED /* VacationsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA4E1559C7C1005CB8ED /* VacationsTVC.m */; };
 		4D8EFA521559C7E9005CB8ED /* PlacesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8EFA511559C7E9005CB8ED /* PlacesTVC.m */; };
@@ -47,6 +46,7 @@
 		4DEDF0FB1550C4E200EF6F22 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDF0FA1550C4E200EF6F22 /* 11-clock.png */; };
 		4DEDF0FE1550C57000EF6F22 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDF0FD1550C57000EF6F22 /* 28-star.png */; };
 		4DEDF1001550C5A200EF6F22 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEDF0FF1550C5A200EF6F22 /* 01-refresh.png */; };
+		4DF5EBE0155B329300BD05C8 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5EBDF155B329300BD05C8 /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,8 +72,6 @@
 		4D8EFA371559C4FF005CB8ED /* Vacation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Vacation.m; path = Database/Vacation.m; sourceTree = "<group>"; };
 		4D8EFA391559C4FF005CB8ED /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Place.h; path = Database/Place.h; sourceTree = "<group>"; };
 		4D8EFA3A1559C4FF005CB8ED /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Place.m; path = Database/Place.m; sourceTree = "<group>"; };
-		4D8EFA3C1559C4FF005CB8ED /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Database/Photo.h; sourceTree = "<group>"; };
-		4D8EFA3D1559C4FF005CB8ED /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Database/Photo.m; sourceTree = "<group>"; };
 		4D8EFA3F1559C4FF005CB8ED /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tag.h; path = Database/Tag.h; sourceTree = "<group>"; };
 		4D8EFA401559C4FF005CB8ED /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tag.m; path = Database/Tag.m; sourceTree = "<group>"; };
 		4D8EFA441559C594005CB8ED /* FlickrFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
@@ -120,6 +118,8 @@
 		4DEDF0FA1550C4E200EF6F22 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
 		4DEDF0FD1550C57000EF6F22 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "28-star.png"; path = "../28-star.png"; sourceTree = "<group>"; };
 		4DEDF0FF1550C5A200EF6F22 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-refresh.png"; path = "../01-refresh.png"; sourceTree = "<group>"; };
+		4DF5EBDE155B329300BD05C8 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Database/Photo.h; sourceTree = "<group>"; };
+		4DF5EBDF155B329300BD05C8 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Database/Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,13 +142,13 @@
 		4D8EFA461559C5D4005CB8ED /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				4DF5EBDE155B329300BD05C8 /* Photo.h */,
+				4DF5EBDF155B329300BD05C8 /* Photo.m */,
 				4DA4605A155AFB9A006654CD /* Photo+Utils.h */,
 				4DA4605B155AFB9A006654CD /* Photo+Utils.m */,
 				4D8EFA0215598E24005CB8ED /* FlickrBrowser.xcdatamodeld */,
 				4D8EFA3F1559C4FF005CB8ED /* Tag.h */,
 				4D8EFA401559C4FF005CB8ED /* Tag.m */,
-				4D8EFA3C1559C4FF005CB8ED /* Photo.h */,
-				4D8EFA3D1559C4FF005CB8ED /* Photo.m */,
 				4D8EFA391559C4FF005CB8ED /* Place.h */,
 				4D8EFA3A1559C4FF005CB8ED /* Place.m */,
 				4D8EFA361559C4FF005CB8ED /* Vacation.h */,
@@ -378,7 +378,6 @@
 				4D8EFA0415598E24005CB8ED /* FlickrBrowser.xcdatamodeld in Sources */,
 				4D8EFA381559C4FF005CB8ED /* Vacation.m in Sources */,
 				4D8EFA3B1559C4FF005CB8ED /* Place.m in Sources */,
-				4D8EFA3E1559C4FF005CB8ED /* Photo.m in Sources */,
 				4D8EFA411559C500005CB8ED /* Tag.m in Sources */,
 				4D8EFA4F1559C7C1005CB8ED /* VacationsTVC.m in Sources */,
 				4D8EFA521559C7E9005CB8ED /* PlacesTVC.m in Sources */,
@@ -391,6 +390,7 @@
 				4DA46066155AFC13006654CD /* Place+Utils.m in Sources */,
 				4DA46069155AFC28006654CD /* Vacation+Utils.m in Sources */,
 				4D49DB46155B0A5E00C5172E /* VacationsDBHelper.m in Sources */,
+				4DF5EBE0155B329300BD05C8 /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

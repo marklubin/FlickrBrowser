@@ -9,6 +9,7 @@
 #import "Vacation.h"
 
 @interface Vacation (Utils)
-+(Vacation *)vacationForString:(NSString *)vacationName;
++(Vacation *)vacationForString:(NSString *)vacationName
+                     inContext:(NSManagedObjectContext *)context;
 
 @end

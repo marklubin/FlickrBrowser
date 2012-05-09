@@ -41,7 +41,7 @@
     {
         [db saveToURL:url forSaveOperation:UIDocumentSaveForCreating 
             completionHandler:^(BOOL success){
-                if(success) [self returnOpenedDocumentToObject:object 
+                            [self returnOpenedDocumentToObject:object 
                                                   withSelector:selector 
                                                managedDocument:db];
             
@@ -50,7 +50,7 @@
         
     } else if(db.documentState == UIDocumentStateClosed){
         [db openWithCompletionHandler:^(BOOL success){
-            if(success) [self returnOpenedDocumentToObject:object 
+                        [self returnOpenedDocumentToObject:object 
                                               withSelector:selector 
                                            managedDocument:db];
             

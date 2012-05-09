@@ -3,8 +3,8 @@
     <entity name="Photo" representedClassName="Photo" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="photoID" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="photos" inverseEntity="Place" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="photos" inverseEntity="Tag" syncable="YES"/>
@@ -24,9 +24,9 @@
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Place" inverseName="vacations" inverseEntity="Place" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Vacation" positionX="-378" positionY="-72" width="128" height="75"/>
-        <element name="Place" positionX="-173" positionY="-87" width="128" height="105"/>
         <element name="Photo" positionX="34" positionY="-126" width="128" height="150"/>
+        <element name="Place" positionX="-173" positionY="-87" width="128" height="105"/>
         <element name="Tag" positionX="207" positionY="-99" width="128" height="75"/>
+        <element name="Vacation" positionX="-378" positionY="-72" width="128" height="75"/>
     </elements>
 </model>

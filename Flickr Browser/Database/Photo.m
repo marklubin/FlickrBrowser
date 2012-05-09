@@ -2,7 +2,7 @@
 //  Photo.m
 //  Flickr Browser
 //
-//  Created by Mark Lubin on 5/8/12.
+//  Created by Mark Lubin on 5/9/12.
 //  Copyright (c) 2012 Lubin. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 
 @implementation Photo
 
-@dynamic photoID;
-@dynamic thumbnail;
-@dynamic url;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic thumbnail;
+@dynamic unique;
+@dynamic url;
 @dynamic place;
 @dynamic tags;
 

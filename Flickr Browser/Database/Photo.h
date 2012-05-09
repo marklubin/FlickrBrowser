@@ -2,7 +2,7 @@
 //  Photo.h
 //  Flickr Browser
 //
-//  Created by Mark Lubin on 5/8/12.
+//  Created by Mark Lubin on 5/9/12.
 //  Copyright (c) 2012 Lubin. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 
 @interface Photo : NSManagedObject
 
-@property (nonatomic, retain) NSData * photoID;
-@property (nonatomic, retain) NSData * thumbnail;
-@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSData * thumbnail;
+@property (nonatomic, retain) NSData * unique;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) Place *place;
 @property (nonatomic, retain) NSSet *tags;
 @end

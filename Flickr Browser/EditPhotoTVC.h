@@ -12,8 +12,9 @@
 #import "CoreDataTableViewController.h"
 
 @interface EditPhotoTVC : CoreDataTableViewController
-@property NSDictionary *photo;
+@property (weak,nonatomic) NSDictionary *photo;
 @property BOOL toDelete;
+@property (strong, nonatomic) UIManagedDocument *vacationDB;
 
 
 @end

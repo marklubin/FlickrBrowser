@@ -7,6 +7,7 @@
 //
 
 #import "EditPhotoTVC.h"
+#import "VacationsDBHelper.h"
 
 @interface EditPhotoTVC ()
 
@@ -15,20 +16,34 @@
 @implementation EditPhotoTVC
 @synthesize photo = _photo;
 @synthesize toDelete = _toDelete;
+@synthesize vacationDB = _vacationDB;
 
+-(void)setVacationDB:(UIManagedDocument *)vacationDB{
+    _vacationDB = vacationDB;
+    //go load myself up with data about each vacation
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [VacationsDBHelper openVacationsDBwithCallbackto:self
+                                       usingSelector:@selector(setVacationDB:)];
 
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"VacationPhotoEditCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.textLabel.text = @"";
     
-    // Configure the cell...
+    if(self.toDelete && indexPath.row == 0){
+        cell.textLabel.text = @"Remove Photo";
+        
+    }else if(!self.toDelete){
+        //configure cell normally
+    }
     
     return cell;
 }
@@ -37,13 +52,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if(self.toDelete && indexPath.row == 0){
+        //remove photo from database
+    }else if(!self.toDelete){
+        //add to approriate vacation
+    }
 }
 
 @end

@@ -9,6 +9,9 @@
 #import "VacationsTVC.h"
 #import "FlickrPhotoViewController.h"
 #import "VacationsDBHelper.h"
+#import "Vacation+Utils.h"
+#define DEFAULT_VACATION_NAME @"My Vacation"
+
 
 @interface VacationsTVC ()<VacationPhotoStatusDelagate>
 
@@ -17,9 +20,12 @@
 @implementation VacationsTVC
 @synthesize vacationsDB = _vacationsDB;
 
+
 -(void)setVacationsDB:(UIManagedDocument *)vacationsDB{
-    //do stuff my freshily opened vacations DB create default vacation if its not there
     _vacationsDB = vacationsDB;
+    //set up a default vacation if its not there
+    [Vacation vacationForString:DEFAULT_VACATION_NAME 
+                      inContext:self.vacationsDB.managedObjectContext];
 }
 
 -(void)awakeFromNib{
@@ -34,13 +40,17 @@
 
 }
 -(BOOL)photoIsVisited:(id)photo{
-    //make sure its an NSDictionary
-    //return whether or not this photo exists in my database
-    //TODO change this so the imageview has the photo dictionary and this method accepts it
-    return YES;
+    if(!self.vacationsDB) return NO; //if i dont have an open document return false
+    
+    NSDictionary *photoDict = photo;
+    NSString *photoID = [photoDict valueForKey:FLICKR_PHOTO_ID];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    NSManagedObjectContext *context = self.vacationsDB.managedObjectContext;
+    request.predicate = [NSPredicate predicateWithFormat:@"unique = %@",photoID];
+    NSArray *matches = [context executeFetchRequest:request error:Nil];
+    return [matches count];
+
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
