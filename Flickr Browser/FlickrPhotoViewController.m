@@ -14,6 +14,7 @@
 @end
 
 @implementation FlickrPhotoViewController
+@synthesize photo = _photo;
 @synthesize toolbar = _toolbar;
 @synthesize imageLabel = _imageLabel;
 @synthesize image = _image;
@@ -21,7 +22,6 @@
 @synthesize imageView = _imageView;
 @synthesize visitButton = _visitButton;
 @synthesize imageTitle = _imageTitle;
-@synthesize photoID = _photoID;
 @synthesize vacationPhotoStatusDelagate = _vacationPhotoStatusDelagate;
 
 -(void)setImage:(UIImage *)image{
@@ -81,7 +81,7 @@
     NSString *barButtonText;
     
     //check the vacation status of the photo and set the button
-    if([self.vacationPhotoStatusDelagate photoIsVisited:self.photoID]){
+    if([self.vacationPhotoStatusDelagate photoIsVisited:self.photo]){
         barButtonText = @"Unvisit";
     } else{
         barButtonText = @"Visit";
@@ -106,7 +106,8 @@
     //sending the edttiing VC my photoID
     if([segue.identifier isEqualToString:@"ShowPhotoEdit"]){
         EditPhotoTVC *tvc = segue.destinationViewController;
-        tvc.photoID = self.photoID;
+        tvc.photo = self.photo;
+        tvc.toDelete = [self.vacationPhotoStatusDelagate photoIsVisited:self.photo];
     }
 }
 

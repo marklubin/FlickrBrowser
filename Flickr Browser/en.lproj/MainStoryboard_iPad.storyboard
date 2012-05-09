@@ -65,7 +65,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="671" y="-160"/>
+            <point key="canvasLocation" x="-217" y="-896"/>
         </scene>
         <!--Edit PhotoTVC - Add Photo to:-->
         <scene sceneID="2eN-yh-7Fp">
@@ -106,7 +106,7 @@
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2014" y="32"/>
+            <point key="canvasLocation" x="862" y="-694"/>
         </scene>
         <!--Flickr Top Photo Table View Controller - Top Places-->
         <scene sceneID="Jqq-KM-p0w">
@@ -263,7 +263,7 @@
                     </connections>
                 </splitViewController>
             </objects>
-            <point key="canvasLocation" x="-2223" y="-2010"/>
+            <point key="canvasLocation" x="-1383" y="-2482"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Bwb-Cu-Gaz">
@@ -283,7 +283,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="79" y="-3769"/>
+            <point key="canvasLocation" x="79" y="-3873"/>
         </scene>
         <!--Navigation Controller - Top Places-->
         <scene sceneID="0lB-Kh-StJ">
@@ -368,7 +368,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1975" y="-3220"/>
+            <point key="canvasLocation" x="2183" y="-3356"/>
         </scene>
         <!--VacationsTVC - Vacations-->
         <scene sceneID="anO-9g-cQn">
@@ -410,7 +410,7 @@
                     <navigationItem key="navigationItem" title="Vacations" id="Pdr-LM-HZu"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1249" y="-1642"/>
+            <point key="canvasLocation" x="1153" y="-2062"/>
         </scene>
         <!--PlacesTVC - Places-->
         <scene sceneID="rjz-7y-lRm">
@@ -459,7 +459,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2969" y="-2227"/>
+            <point key="canvasLocation" x="2721" y="-2539"/>
         </scene>
         <!--Vacation PhotosTVC - Photos-->
         <scene sceneID="5Al-OC-hNb">
@@ -505,7 +505,7 @@
                     <navigationItem key="navigationItem" title="Photos" id="Ve2-lT-OMU"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3701" y="-1722"/>
+            <point key="canvasLocation" x="3629" y="-2002"/>
         </scene>
         <!--Itinerary TagsTVC - Vacation Name Here-->
         <scene sceneID="2WO-MI-wyj">
@@ -572,7 +572,7 @@
                     <navigationItem key="navigationItem" title="Vacation Name Here" id="QKv-Af-vCV"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1975" y="-1654"/>
+            <point key="canvasLocation" x="1799" y="-2046"/>
         </scene>
         <!--TagsTVC - Tags-->
         <scene sceneID="9Qd-8o-Odm">
@@ -621,7 +621,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2969" y="-1090"/>
+            <point key="canvasLocation" x="2705" y="-1354"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="i3r-s8-ugk">
@@ -646,7 +646,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2861" y="-4024"/>
+            <point key="canvasLocation" x="3133" y="-3944"/>
         </scene>
         <!--Navigation Controller - Recent-->
         <scene sceneID="Vzf-Cw-Jfd">
@@ -666,7 +666,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1440" y="-3220"/>
+            <point key="canvasLocation" x="1148" y="-3356"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lGs-J0-ERT">
@@ -686,7 +686,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="561" y="-1654"/>
+            <point key="canvasLocation" x="577" y="-2062"/>
         </scene>
     </scenes>
     <resources>
@@ -694,75 +694,13 @@
         <image name="11-clock.png" width="25" height="25"/>
         <image name="28-star.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="EditPhotoTVC" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditPhotoTVC.h"/>
-        </class>
-        <class className="FlickrPhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="visitButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="FlickrPlacePhotosViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPlacePhotosViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="morePhotosButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="FlickrRecentPhotosTableViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrRecentPhotosTableViewController.h"/>
-        </class>
-        <class className="FlickrTopPhotoTableViewController" superclassName="PhotoListTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTopPhotoTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ItineraryTagsTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItineraryTagsTVC.h"/>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="PhotoListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="reloadButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PlacesTVC" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTVC.h"/>
-        </class>
-        <class className="TagsTVC" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagsTVC.h"/>
-        </class>
-        <class className="VacationPhotosTVC" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationPhotosTVC.h"/>
-        </class>
-        <class className="VacationsTVC" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VacationsTVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Pew-fn-OwC"/>
-        <segue reference="svu-Bt-sBU"/>
+        <segue reference="o2n-dO-LBW"/>
+        <segue reference="0ua-9z-QS9"/>
     </inferredMetricsTieBreakers>
 </document>

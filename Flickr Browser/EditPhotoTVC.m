@@ -14,8 +14,7 @@
 
 @implementation EditPhotoTVC
 @synthesize photo = _photo;
-@synthesize photoID = _photoID;
-@synthesize toAdd = _toAdd;
+@synthesize toDelete = _toDelete;
 
 
 - (void)viewDidLoad

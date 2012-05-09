@@ -20,10 +20,13 @@
     
     FlickrPhotoViewController *fPTVC =  [self.splitViewController.viewControllers lastObject];
     fPTVC.vacationPhotoStatusDelagate = self;
+    //when i load get my vacations create the file if it doesn't exists and create a default vacation if there are none
 
 }
--(BOOL)photoIsVisited:(NSString *)photoID{
+-(BOOL)photoIsVisited:(id)photo{
+    //make sure its an NSDictionary
     //return whether or not this photo exists in my database
+    //TODO change this so the imageview has the photo dictionary and this method accepts it
     return YES;
 }
 

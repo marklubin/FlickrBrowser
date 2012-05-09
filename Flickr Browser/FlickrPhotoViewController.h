@@ -10,7 +10,7 @@
 
 @protocol VacationPhotoStatusDelagate 
 
--(BOOL)photoIsVisited:(NSString *)photoID;
+-(BOOL)photoIsVisited:(id) photo;
 
 @end
 
@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *visitButton;
-@property (strong,nonatomic) NSString *photoID;
 @property (weak,nonatomic) id<VacationPhotoStatusDelagate> vacationPhotoStatusDelagate;
+@property (weak, nonatomic) id photo;
 
 @end
