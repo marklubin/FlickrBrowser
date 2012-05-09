@@ -9,5 +9,6 @@
 #import "Place.h"
 
 @interface Place (Utils)
++(Place *)placeForString:(NSString *)placeName;
 
 @end

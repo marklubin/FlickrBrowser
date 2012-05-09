@@ -9,5 +9,6 @@
 #import "Vacation.h"
 
 @interface Vacation (Utils)
++(Vacation *)vacationForString:(NSString *)vacationName;
 
 @end

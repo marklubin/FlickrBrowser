@@ -9,5 +9,6 @@
 #import "Photo.h"
 
 @interface Photo (Utils)
++(Photo *)photoForFlickrPhoto:(NSDictionary *)flickrPhoto;
 
 @end

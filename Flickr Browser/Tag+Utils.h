@@ -9,5 +9,6 @@
 #import "Tag.h"
 
 @interface Tag (Utils)
++(NSSet *)tagsForStrings:(NSArray *)tags;
 
 @end
