@@ -9,5 +9,10 @@
 #import "Place+Utils.h"
 
 @implementation Place (Utils)
++(Place *)placeForString:(NSString *)placeName{
+    //if this is a place to exists already return it
+    //else make it
+    //return it
+}
 
 @end

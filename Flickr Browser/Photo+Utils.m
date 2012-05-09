@@ -9,5 +9,9 @@
 #import "Photo+Utils.h"
 
 @implementation Photo (Utils)
-
++(Photo *)photoForFlickrPhoto:(NSDictionary *)flickrPhoto{
+    //if this already exists return it
+    //else set attributes
+    //set the photo thumbnail image async
+}
 @end

@@ -9,5 +9,9 @@
 #import "Vacation+Utils.h"
 
 @implementation Vacation (Utils)
++(Vacation *)vacationForString:(NSString *)vacationName{
+    //if a vacation by this name exists return it
+    //else make it
+}
 
 @end
